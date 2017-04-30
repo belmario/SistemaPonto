@@ -27,28 +27,34 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        CadastroFuncionariojButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        CadastroFuncionariojButton.setText("Cadastro Funcionario");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/listaregistros.png"))); // NOI18N
+        getContentPane().add(jButton1);
+        jButton1.setBounds(380, 100, 170, 159);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(CadastroFuncionariojButton)
-                .addContainerGap(255, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(CadastroFuncionariojButton)
-                .addContainerGap(258, Short.MAX_VALUE))
-        );
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/registrarponto.png"))); // NOI18N
+        getContentPane().add(jButton2);
+        jButton2.setBounds(390, 300, 160, 160);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/marcarponto.png"))); // NOI18N
+        getContentPane().add(jButton3);
+        jButton3.setBounds(130, 300, 160, 160);
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/cadastrofuncionario.png"))); // NOI18N
+        getContentPane().add(jButton4);
+        jButton4.setBounds(130, 100, 170, 170);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/telaprincipal.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, -110, 1120, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -89,6 +95,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CadastroFuncionariojButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
