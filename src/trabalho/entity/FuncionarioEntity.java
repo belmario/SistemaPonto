@@ -15,17 +15,20 @@ import javax.persistence.Id;
  *
  * @author savio
  */
-
 @Entity(name = "Funcionario")
 public class FuncionarioEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int codigoFuncionario;
     private String nomeFuncionario;
     private int idadeFuncionario;
-    @Column(unique=true) 
+    @Column(unique = true)
     private String cpfFuncionario;
     private String funcaoFuncionario;
+    @Column(unique = true)
+    private String emailFuncionario;
+    private String telefoneFuncionairo;
 
     public int getCodigoFuncionario() {
         return codigoFuncionario;
@@ -66,8 +69,21 @@ public class FuncionarioEntity {
     public void setFuncaoFuncionario(String funcaoFuncionario) {
         this.funcaoFuncionario = funcaoFuncionario;
     }
-    
-    
-    
-    
+
+    public String getEmailFuncionario() {
+        return emailFuncionario;
+    }
+
+    public void setEmailFuncionario(String emailFuncionario) {
+        this.emailFuncionario = emailFuncionario;
+    }
+
+    public String getTelefoneFuncionairo() {
+        return telefoneFuncionairo;
+    }
+
+    public void setTelefoneFuncionairo(String telefoneFuncionairo) {
+        this.telefoneFuncionairo = telefoneFuncionairo;
+    }
+
 }

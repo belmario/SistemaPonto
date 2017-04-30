@@ -5,6 +5,7 @@
  */
 package trabalho.model;
 
+import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import trabalho.util.HibernateUtil;
@@ -28,6 +29,7 @@ public class GenericDAO<E> {
             sessao.beginTransaction();
             sessao.save(entidade);
             sessao.getTransaction().commit();
+            JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
         } catch (HibernateException ex) {
             ex.printStackTrace();
         } finally {
