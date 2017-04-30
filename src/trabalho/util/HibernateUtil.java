@@ -5,32 +5,24 @@
  */
 package trabalho.util;
 
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
-
-/**
- * Hibernate Utility class with a convenient method to get Session Factory
- * object.
- *
- * @author savio
- */
+import org.hibernate.cfg.Configuration;
+ 
 public class HibernateUtil {
-
-    private static final SessionFactory sessionFactory;
-    
-    static {
-        try {
-            // Create the SessionFactory from standard (hibernate.cfg.xml) 
-            // config file.
-            sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
-        } catch (Throwable ex) {
-            // Log the exception. 
-            System.err.println("Initial SessionFactory creation failed." + ex);
-            throw new ExceptionInInitializerError(ex);
-        }
+ 
+    public static SessionFactory factory;
+//to disallow creating objects by other classes.
+ 
+    private HibernateUtil() {
     }
-    
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
+//maling the Hibernate SessionFactory object as singleton
+ 
+    public static synchronized SessionFactory getSessionFactory() {
+ 
+        if (factory == null) {
+            factory = new Configuration().configure("hibernate.cfg.xml").
+                    buildSessionFactory();
+        }
+        return factory;
     }
 }

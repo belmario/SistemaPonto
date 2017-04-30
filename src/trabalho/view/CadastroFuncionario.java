@@ -21,9 +21,10 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     public CadastroFuncionario() {
         initComponents();
         setLocationRelativeTo(null);
+        
 
     }
-
+    GenericDAO dao = new GenericDAO();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,7 +153,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private void cadastroFuncionariojToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroFuncionariojToggleButtonActionPerformed
         // TODO add your handling code here:
 
-        GenericDAO dao = new GenericDAO();
+        
         FuncionarioEntity funcionario = new FuncionarioEntity();
 
         try {

@@ -21,19 +21,18 @@ import trabalho.util.HibernateUtil;
 public class GenericDAO<E> {
     
     private Session sessao;
-    
+    public GenericDAO(){
+        sessao = HibernateUtil.getSessionFactory().openSession();
+    }
     public void salvar(E entidade) {
 
         try {
-            sessao = HibernateUtil.getSessionFactory().openSession();
             sessao.beginTransaction();
             sessao.save(entidade);
             sessao.getTransaction().commit();
             JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
         } catch (HibernateException ex) {
             ex.printStackTrace();
-        } finally {
-            sessao.close();
         }
     }
     
