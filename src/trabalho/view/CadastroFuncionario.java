@@ -5,9 +5,11 @@
  */
 package trabalho.view;
 
+import java.sql.Date;
 import javax.swing.JOptionPane;
 import trabalho.entity.FuncionarioEntity;
 import trabalho.model.GenericDAO;
+import trabalho.model.JodaMain;
 
 /**
  *
@@ -153,7 +155,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private void cadastroFuncionariojToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroFuncionariojToggleButtonActionPerformed
         // TODO add your handling code here:
 
-        
+        JodaMain joda = new JodaMain();
         FuncionarioEntity funcionario = new FuncionarioEntity();
 
         try {
@@ -166,6 +168,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 funcionario.setCpfFuncionario(cpfFuncionariojTextField.getText());
                 funcionario.setEmailFuncionario(emailFuncionariojTextField.getText());
                 funcionario.setTelefoneFuncionairo(telefoneFuncionariojTextField.getText());
+                funcionario.setFuncaoFuncionario(funcaoFuncionariojTextField.getText());
+                //funcionario.setDataInicial(joda.insereDataLocal());
                 dao.salvar(funcionario);
             }
 

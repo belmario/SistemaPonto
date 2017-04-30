@@ -5,11 +5,15 @@
  */
 package trabalho.entity;
 
+import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import org.hibernate.annotations.Type;
+import org.joda.time.DateTime;
+import org.joda.time.LocalTime;
 
 /**
  *
@@ -29,7 +33,63 @@ public class FuncionarioEntity {
     @Column(unique = true)
     private String emailFuncionario;
     private String telefoneFuncionairo;
+    private Timestamp dataInicial;
+    private Timestamp dataFinal;
 
+    /*
+    public DateTime getDataInicial() {
+        return dataInicial;
+    }
+
+    public java.sql.Date getDataInicialFormatadoSQL() {
+        return new java.sql.Date(dataInicial.getMillis());
+    }
+
+    public void setDataInicial(DateTime dataInicial) {
+        this.dataInicial = dataInicial;
+    }
+
+    public void setDataInicial(java.sql.Date data) {
+        dataInicial = new DateTime(data);
+    }
+
+    public DateTime getDataFinal() {
+        return dataFinal;
+    }
+
+    public void setDataFinal(DateTime dataFinal) {
+        this.dataFinal = dataFinal;
+    }
+     */
+
+    public Timestamp getDataInicial() {
+        return dataInicial;
+    }
+
+    public void setDataInicial(Timestamp dataInicial) {
+        this.dataInicial = dataInicial;
+    }
+
+    public Timestamp getDataFinal() {
+        return dataFinal;
+    }
+
+    public void setDataFinal(Timestamp dataFinal) {
+        this.dataFinal = dataFinal;
+    }
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public int getCodigoFuncionario() {
         return codigoFuncionario;
     }
