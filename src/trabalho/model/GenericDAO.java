@@ -5,9 +5,11 @@
  */
 package trabalho.model;
 
-import net.sf.ehcache.hibernate.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import trabalho.util.HibernateUtil;
+
+
 
 /**
  *
