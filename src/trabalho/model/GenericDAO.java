@@ -5,35 +5,46 @@
  */
 package trabalho.model;
 
+
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import trabalho.entity.FuncionarioEntity;
 import trabalho.util.HibernateUtil;
-
-
 
 /**
  *
  * @author savio
- * 
+ *
  * @param <E>
  */
 public class GenericDAO<E> {
-    
-    private Session sessao;
-    public GenericDAO(){
+
+    private final Session sessao;
+
+    public GenericDAO() {
         sessao = HibernateUtil.getSessionFactory().openSession();
     }
+
     public void salvar(E entidade) {
 
         try {
             sessao.beginTransaction();
             sessao.save(entidade);
             sessao.getTransaction().commit();
-            JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
         } catch (HibernateException ex) {
             ex.printStackTrace();
         }
     }
-    
+
+    public FuncionarioEntity buscaFuncionario(int codigoFuncionairo) {
+        String valorBuscado = "from Funcionario where codigoFuncionario = " + codigoFuncionairo;
+        org.hibernate.Query query = sessao.createQuery(valorBuscado);
+        query.setMaxResults(1);
+        FuncionarioEntity funcionario = (FuncionarioEntity) query.uniqueResult();
+        return funcionario;
+
+    }
+
 }

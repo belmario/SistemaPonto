@@ -5,6 +5,8 @@
  */
 package trabalho.view;
 
+import trabalho.model.GenericDAO;
+
 /**
  *
  * @author savio
@@ -16,6 +18,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        GenericDAO dao = new GenericDAO();
     }
 
     /**

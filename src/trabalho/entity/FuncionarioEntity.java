@@ -5,16 +5,12 @@
  */
 package trabalho.entity;
 
-import java.sql.Timestamp;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -35,16 +31,18 @@ public class FuncionarioEntity {
     @Column(unique = true)
     private String emailFuncionario;
     private String telefoneFuncionairo;
-    @ManyToOne
-    private RegistroPontoEntity reigstroFuncionario;
+       @OneToMany(targetEntity = RegistroPontoEntity.class)
+    private List<RegistroPontoEntity> registroPonto;
 
-    public RegistroPontoEntity getReigstroFuncionario() {
-        return reigstroFuncionario;
+    public List<RegistroPontoEntity> getRegistroPonto() {
+        return registroPonto;
     }
 
-    public void setReigstroFuncionario(RegistroPontoEntity reigstroFuncionario) {
-        this.reigstroFuncionario = reigstroFuncionario;
+    public void setRegistroPonto(List<RegistroPontoEntity> registroPonto) {
+        this.registroPonto = registroPonto;
     }
+
+
 
     public int getCodigoFuncionario() {
         return codigoFuncionario;

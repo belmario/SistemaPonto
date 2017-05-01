@@ -5,6 +5,9 @@
  */
 package trabalho.view;
 
+import trabalho.entity.FuncionarioEntity;
+import trabalho.model.GenericDAO;
+
 /**
  *
  * @author Tecnico
@@ -17,7 +20,6 @@ public class RegistroPonto extends javax.swing.JFrame {
     public RegistroPonto() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,10 +31,22 @@ public class RegistroPonto extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         codigoFuncionariojTextField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        nomeFuncionariojTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Código Funcionário");
+
+        codigoFuncionariojTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                codigoFuncionariojTextFieldFocusLost(evt);
+            }
+        });
+
+        jLabel2.setText("Funcionário:");
+
+        nomeFuncionariojTextField.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -43,7 +57,11 @@ public class RegistroPonto extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(30, 30, 30)
                 .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nomeFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -51,12 +69,26 @@ public class RegistroPonto extends javax.swing.JFrame {
                 .addGap(92, 92, 92)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(nomeFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(218, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void codigoFuncionariojTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codigoFuncionariojTextFieldFocusLost
+        // TODO add your handling code here:
+        
+        GenericDAO dao = new GenericDAO();
+        int idFuncionario;
+        idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
+        FuncionarioEntity funcionario = dao.buscaFuncionario(idFuncionario);
+        nomeFuncionariojTextField.setText(funcionario.getNomeFuncionario());
+        
+        
+    }//GEN-LAST:event_codigoFuncionariojTextFieldFocusLost
 
     /**
      * @param args the command line arguments
@@ -96,5 +128,7 @@ public class RegistroPonto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codigoFuncionariojTextField;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField nomeFuncionariojTextField;
     // End of variables declaration//GEN-END:variables
 }
