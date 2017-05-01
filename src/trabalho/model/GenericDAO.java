@@ -5,20 +5,17 @@
  */
 package trabalho.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import trabalho.entity.FuncionarioEntity;
 import trabalho.entity.RegistroPontoEntity;
 import trabalho.util.HibernateUtil;
+import trabalho.util.NovoHibernateUtil;
 
 /**
  *
@@ -28,10 +25,12 @@ import trabalho.util.HibernateUtil;
  */
 public class GenericDAO<E> {
 
-    private final Session sessao;
+    private Session sessao;
+    private Session sessao2;
 
     public GenericDAO() {
         sessao = HibernateUtil.getSessionFactory().openSession();
+        sessao2 = NovoHibernateUtil.getSessionFactory().openSession();
     }
 
     public void salvar(E entidade) {
@@ -49,10 +48,13 @@ public class GenericDAO<E> {
     public void atualizar(E entidade) {
 
         try {
-            sessao.beginTransaction();
-            sessao.update(entidade);
-            sessao.getTransaction().commit();
+            sessao.close();
+            sessao2 = HibernateUtil.getSessionFactory().openSession();
+            sessao2.beginTransaction();
+            sessao2.update(entidade);
+            sessao2.getTransaction().commit();
             JOptionPane.showMessageDialog(null, "Registro efetuado com sucesso!");
+            sessao2.close();
         } catch (HibernateException ex) {
             ex.printStackTrace();
         }
@@ -75,13 +77,10 @@ public class GenericDAO<E> {
         criteria.addOrder(Order.asc("codigoBuscaFuncionario"));
         criteria.add(Restrictions.eq("codigoBuscaFuncionario", codigoFuncionario));
         criteria.setMaxResults(1);
-
         //Retorna os dados da consulta
         List listaRegistro = criteria.list();
+        registroPonto = (RegistroPontoEntity) listaRegistro.get(0);
 
-        for (Object registroEntity : listaRegistro) {
-            registroPonto = (RegistroPontoEntity) listaRegistro;
-        }
         return registroPonto;
     }
 
