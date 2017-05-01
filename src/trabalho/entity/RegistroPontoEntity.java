@@ -28,15 +28,16 @@ public class RegistroPontoEntity {
     @Column(columnDefinition = "boolean default false")
     private boolean statusPonto;
     @ManyToOne
-    private RegistroPontoEntity funcionario;
+    private FuncionarioEntity funcionario;
+    private int codigoBuscaFuncionario;
 
-    public RegistroPontoEntity getFuncionario() {
-        return funcionario;
+    public int getCodigoBuscaFuncionario() {
+        return codigoBuscaFuncionario;
     }
 
-    public void setFuncionario(RegistroPontoEntity funcionario) {
-        this.funcionario = funcionario;
-    }
+    public void setCodigoBuscaFuncionario(int codigoBuscaFuncionario) {
+        this.codigoBuscaFuncionario = codigoBuscaFuncionario;
+    }   
 
     public boolean isStatusPonto() {
         return statusPonto;
@@ -68,6 +69,22 @@ public class RegistroPontoEntity {
 
     public void setDataFinal(Timestamp dataFinal) {
         this.dataFinal = dataFinal;
+    }
+
+    public int getCodigoRegistroPonto() {
+        return codigoRegistroPonto;
+    }
+
+    public void setCodigoRegistroPonto(int codigoRegistroPonto) {
+        this.codigoRegistroPonto = codigoRegistroPonto;
+    }
+
+    public FuncionarioEntity getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(FuncionarioEntity funcionario) {
+        this.funcionario = funcionario;
     }
 
 }
