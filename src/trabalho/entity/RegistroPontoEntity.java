@@ -6,11 +6,14 @@
 package trabalho.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -22,18 +25,35 @@ public class RegistroPontoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int codigoRegistroFuncionario;
+    private int codigoRegistroPonto;
     private Timestamp dataInicial;
     private Timestamp dataFinal;
-    @OneToOne(cascade = CascadeType.ALL)
-    private FuncionarioEntity funcionario;
+    private boolean statusPonto;
+    @ManyToOne
+    private RegistroPontoEntity funcionario;
+
+    public RegistroPontoEntity getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(RegistroPontoEntity funcionario) {
+        this.funcionario = funcionario;
+    }
+
+    public boolean isStatusPonto() {
+        return statusPonto;
+    }
+
+    public void setStatusPonto(boolean statusPonto) {
+        this.statusPonto = statusPonto;
+    }
 
     public int getCodigoRegistroFuncionario() {
-        return codigoRegistroFuncionario;
+        return codigoRegistroPonto;
     }
 
     public void setCodigoRegistroFuncionario(int codigoRegistroFuncionario) {
-        this.codigoRegistroFuncionario = codigoRegistroFuncionario;
+        this.codigoRegistroPonto = codigoRegistroFuncionario;
     }
 
     public Timestamp getDataInicial() {
@@ -50,14 +70,6 @@ public class RegistroPontoEntity {
 
     public void setDataFinal(Timestamp dataFinal) {
         this.dataFinal = dataFinal;
-    }
-
-    public FuncionarioEntity getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(FuncionarioEntity funcionario) {
-        this.funcionario = funcionario;
     }
 
 }
