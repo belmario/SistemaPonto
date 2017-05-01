@@ -5,8 +5,11 @@
  */
 package trabalho.view;
 
+import javax.swing.JOptionPane;
 import trabalho.entity.FuncionarioEntity;
+import trabalho.entity.RegistroPontoEntity;
 import trabalho.model.GenericDAO;
+import trabalho.model.JodaMain;
 
 /**
  *
@@ -20,6 +23,10 @@ public class RegistroPonto extends javax.swing.JFrame {
     public RegistroPonto() {
         initComponents();
     }
+
+    JodaMain joda = new JodaMain();
+    GenericDAO dao = new GenericDAO();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,6 +40,8 @@ public class RegistroPonto extends javax.swing.JFrame {
         codigoFuncionariojTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         nomeFuncionariojTextField = new javax.swing.JTextField();
+        iniciarTurnojButton = new javax.swing.JButton();
+        finalizarTurnojToggleButton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,19 +57,41 @@ public class RegistroPonto extends javax.swing.JFrame {
 
         nomeFuncionariojTextField.setEditable(false);
 
+        iniciarTurnojButton.setText("Iniciar Turno");
+        iniciarTurnojButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniciarTurnojButtonActionPerformed(evt);
+            }
+        });
+
+        finalizarTurnojToggleButton.setText("Finalizar Turno");
+        finalizarTurnojToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finalizarTurnojToggleButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addGap(30, 30, 30)
-                .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel1)
+                        .addGap(30, 30, 30)
+                        .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(iniciarTurnojButton)))
                 .addGap(43, 43, 43)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nomeFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nomeFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(finalizarTurnojToggleButton))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -72,7 +103,11 @@ public class RegistroPonto extends javax.swing.JFrame {
                     .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(nomeFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addGap(84, 84, 84)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(iniciarTurnojButton)
+                    .addComponent(finalizarTurnojToggleButton))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();
@@ -80,15 +115,46 @@ public class RegistroPonto extends javax.swing.JFrame {
 
     private void codigoFuncionariojTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codigoFuncionariojTextFieldFocusLost
         // TODO add your handling code here:
-        
-        GenericDAO dao = new GenericDAO();
+
         int idFuncionario;
         idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
         FuncionarioEntity funcionario = dao.buscaFuncionario(idFuncionario);
         nomeFuncionariojTextField.setText(funcionario.getNomeFuncionario());
-        
-        
+
+
     }//GEN-LAST:event_codigoFuncionariojTextFieldFocusLost
+
+    private void iniciarTurnojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarTurnojButtonActionPerformed
+        // TODO add your handling code here:
+
+        //RegistroPontoEntity ponto = new RegistroPontoEntity();
+        RegistroPontoEntity ponto = new RegistroPontoEntity();
+        int idFuncionario;
+        idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
+        FuncionarioEntity funcionario = dao.buscaFuncionario(idFuncionario);
+        ponto.setCodigoRegistroFuncionario(idFuncionario);
+        ponto.setFuncionario(funcionario);
+        ponto.setDataInicial(joda.insereDataLocal());
+        ponto.setCodigoBuscaFuncionario(idFuncionario);
+        ponto.setStatusPonto(true);
+        dao.salvar(ponto);
+
+    }//GEN-LAST:event_iniciarTurnojButtonActionPerformed
+
+    private void finalizarTurnojToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarTurnojToggleButtonActionPerformed
+        // TODO add your handling code here:
+
+        int idFuncionario;
+        idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
+        FuncionarioEntity funcionario = dao.buscaFuncionario(idFuncionario);
+        RegistroPontoEntity ponto = dao.buscaCodigoRegistro(idFuncionario);
+        ponto.setCodigoRegistroFuncionario(idFuncionario);
+        ponto.setFuncionario(funcionario);
+        ponto.setDataFinal(joda.insereDataLocal());
+        dao.atualizar(ponto);
+
+
+    }//GEN-LAST:event_finalizarTurnojToggleButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,6 +193,8 @@ public class RegistroPonto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codigoFuncionariojTextField;
+    private javax.swing.JToggleButton finalizarTurnojToggleButton;
+    private javax.swing.JButton iniciarTurnojButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField nomeFuncionariojTextField;

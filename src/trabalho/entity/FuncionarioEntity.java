@@ -31,7 +31,7 @@ public class FuncionarioEntity {
     @Column(unique = true)
     private String emailFuncionario;
     private String telefoneFuncionairo;
-       @OneToMany(targetEntity = RegistroPontoEntity.class)
+    @OneToMany(targetEntity = RegistroPontoEntity.class)
     private List<RegistroPontoEntity> registroPonto;
 
     public List<RegistroPontoEntity> getRegistroPonto() {
@@ -41,8 +41,6 @@ public class FuncionarioEntity {
     public void setRegistroPonto(List<RegistroPontoEntity> registroPonto) {
         this.registroPonto = registroPonto;
     }
-
-
 
     public int getCodigoFuncionario() {
         return codigoFuncionario;
