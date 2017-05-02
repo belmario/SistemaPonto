@@ -187,7 +187,7 @@ public class RegistroPonto extends javax.swing.JFrame {
         System.out.println(ponto.getCodigoRegistroFuncionario());
         //RegistroPontoEntity ponto2;
         dao.atualizar(ponto);
-        //joda.retornaTempo(ponto);
+        joda.retornaTempo(ponto);
 
 
     }//GEN-LAST:event_finalizarTurnoButtonMouseClicked

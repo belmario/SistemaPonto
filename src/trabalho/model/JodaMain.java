@@ -7,6 +7,7 @@ package trabalho.model;
 
 import java.sql.Timestamp;
 import org.joda.time.DateTime;
+import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormat;
 import trabalho.entity.RegistroPontoEntity;
 
@@ -26,8 +27,10 @@ public class JodaMain {
     
     public void retornaTempo(RegistroPontoEntity registro){
         RegistroPontoEntity registroPonto= registro;
-        DateTime horaEntrada = new DateTime(registroPonto.getDataInicial());
-        System.out.println(horaEntrada);
+        DateTime dataHoraEntrada = new DateTime(registroPonto.getDataInicial());
+        DateTime horaEntrada;
+        int horaLocal = dataHoraEntrada.getMinuteOfDay();  
+        System.out.println(horaLocal);
             
         
     }
