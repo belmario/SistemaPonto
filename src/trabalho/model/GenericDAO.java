@@ -30,7 +30,7 @@ public class GenericDAO<E> {
 
     public GenericDAO() {
         sessao = HibernateUtil.getSessionFactory().openSession();
-        sessao2 = NovoHibernateUtil.getSessionFactory().openSession();
+       // sessao2 = NovoHibernateUtil.getSessionFactory().openSession();
     }
 
     public void salvar(E entidade) {
@@ -44,11 +44,10 @@ public class GenericDAO<E> {
             ex.printStackTrace();
         }
     }
-
     public void atualizar(E entidade) {
 
         try {
-            sessao.close();
+            //sessao.close();
             sessao2 = HibernateUtil.getSessionFactory().openSession();
             sessao2.beginTransaction();
             sessao2.update(entidade);
@@ -59,7 +58,7 @@ public class GenericDAO<E> {
             ex.printStackTrace();
         }
 
-    }
+    }  
 
     public FuncionarioEntity buscaFuncionario(int codigoFuncionairo) {
         String valorBuscado = "from Funcionario where codigoFuncionario = " + codigoFuncionairo;
@@ -74,11 +73,11 @@ public class GenericDAO<E> {
         RegistroPontoEntity registroPonto = null;
         sessao.beginTransaction();
         Criteria criteria = sessao.createCriteria(RegistroPontoEntity.class);
-        criteria.addOrder(Order.asc("codigoBuscaFuncionario"));
         criteria.add(Restrictions.eq("codigoBuscaFuncionario", codigoFuncionario));
+        criteria.addOrder(Order.desc("codigoRegistroPonto"));
         criteria.setMaxResults(1);
         //Retorna os dados da consulta
-        List listaRegistro = criteria.list();
+        List<RegistroPontoEntity> listaRegistro = criteria.list();
         registroPonto = (RegistroPontoEntity) listaRegistro.get(0);
 
         return registroPonto;

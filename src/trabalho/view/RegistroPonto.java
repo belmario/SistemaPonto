@@ -148,9 +148,15 @@ public class RegistroPonto extends javax.swing.JFrame {
         idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
         FuncionarioEntity funcionario = dao.buscaFuncionario(idFuncionario);
         RegistroPontoEntity ponto = dao.buscaCodigoRegistro(idFuncionario);
-        ponto.setCodigoRegistroFuncionario(idFuncionario);
-        ponto.setFuncionario(funcionario);
+        System.out.println(ponto.getCodigoRegistroPonto());
+        //ponto.setCodigoRegistroFuncionario(idFuncionario);
+        //ponto.setFuncionario(funcionario);
         ponto.setDataFinal(joda.insereDataLocal());
+        //ponto.setCodigoRegistroPonto(ponto.getCodigoRegistroPonto());
+        System.out.println(ponto.getDataFinal());
+        System.out.println(ponto.getCodigoRegistroFuncionario());
+        RegistroPontoEntity ponto2;
+        //ponto2 = ponto;
         dao.atualizar(ponto);
 
 
