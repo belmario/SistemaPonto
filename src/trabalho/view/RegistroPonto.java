@@ -70,14 +70,14 @@ public class RegistroPonto extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel2.setText("Funcionário");
 
-        iniciarTurnoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/iniciarTurno.png"))); // NOI18N
+        iniciarTurnoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/IniciarTurno.jpg"))); // NOI18N
         iniciarTurnoButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iniciarTurnoButtonMouseClicked(evt);
             }
         });
 
-        finalizarTurnoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/finalizarTurno.png"))); // NOI18N
+        finalizarTurnoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/FinalizarTurno.jpg"))); // NOI18N
         finalizarTurnoButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 finalizarTurnoButtonMouseClicked(evt);
