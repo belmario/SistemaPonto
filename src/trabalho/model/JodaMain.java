@@ -8,6 +8,7 @@ package trabalho.model;
 import java.sql.Timestamp;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
+import trabalho.entity.RegistroPontoEntity;
 
 public class JodaMain {
 
@@ -21,5 +22,14 @@ public class JodaMain {
         System.out.println(data);
         Timestamp stamp = new Timestamp(data.getMillis()); 
         return stamp;
+    }
+    
+    public void retornaTempo(){
+        RegistroPontoEntity registroPonto = new RegistroPontoEntity();
+        DateTime horaEntrada = new DateTime(registroPonto.getDataInicial());
+        System.out.println(horaEntrada);
+        
+        
+        
     }
 }
