@@ -41,8 +41,8 @@ public class RegistroPonto extends javax.swing.JFrame {
         codigoFuncionariojTextField = new javax.swing.JTextField();
         nomeFuncionariojTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        iniciarTurnoButton = new javax.swing.JLabel();
+        finalizarTurnoButton = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,17 +70,17 @@ public class RegistroPonto extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel2.setText("Funcionário");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/Inciar turno.png"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        iniciarTurnoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/iniciarTurno.png"))); // NOI18N
+        iniciarTurnoButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                iniciarTurnoButtonMouseClicked(evt);
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/Finalizar turno.png"))); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        finalizarTurnoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/finalizarTurno.png"))); // NOI18N
+        finalizarTurnoButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                finalizarTurnoButtonMouseClicked(evt);
             }
         });
 
@@ -92,9 +92,9 @@ public class RegistroPonto extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(iniciarTurnoButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(finalizarTurnoButton)
                 .addGap(26, 26, 26))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(66, 66, 66)
@@ -125,8 +125,8 @@ public class RegistroPonto extends javax.swing.JFrame {
                     .addComponent(nomeFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(iniciarTurnoButton)
+                    .addComponent(finalizarTurnoButton))
                 .addGap(24, 24, 24))
         );
 
@@ -157,7 +157,7 @@ public class RegistroPonto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_codigoFuncionariojTextFieldFocusLost
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void iniciarTurnoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarTurnoButtonMouseClicked
         // TODO add your handling code here:
         
         //RegistroPontoEntity ponto = new RegistroPontoEntity();
@@ -172,24 +172,25 @@ public class RegistroPonto extends javax.swing.JFrame {
         ponto.setStatusPonto(true);
         dao.salvar(ponto);
 
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_iniciarTurnoButtonMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void finalizarTurnoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finalizarTurnoButtonMouseClicked
         // TODO add your handling code here:
-        
+
         int idFuncionario;
         idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
-        FuncionarioEntity funcionario = dao.buscaFuncionario(idFuncionario);
+        //FuncionarioEntity funcionario = dao.buscaFuncionario(idFuncionario);
         RegistroPontoEntity ponto = dao.buscaCodigoRegistro(idFuncionario);
         System.out.println(ponto.getCodigoRegistroPonto());
         ponto.setDataFinal(joda.insereDataLocal());
         System.out.println(ponto.getDataFinal());
         System.out.println(ponto.getCodigoRegistroFuncionario());
-        RegistroPontoEntity ponto2;
+        //RegistroPontoEntity ponto2;
         dao.atualizar(ponto);
+        //joda.retornaTempo(ponto);
 
 
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_finalizarTurnoButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -228,10 +229,10 @@ public class RegistroPonto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codigoFuncionariojTextField;
+    private javax.swing.JLabel finalizarTurnoButton;
+    private javax.swing.JLabel iniciarTurnoButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nomeFuncionariojTextField;

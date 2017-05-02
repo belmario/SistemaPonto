@@ -24,12 +24,11 @@ public class JodaMain {
         return stamp;
     }
     
-    public void retornaTempo(){
-        RegistroPontoEntity registroPonto = new RegistroPontoEntity();
+    public void retornaTempo(RegistroPontoEntity registro){
+        RegistroPontoEntity registroPonto= registro;
         DateTime horaEntrada = new DateTime(registroPonto.getDataInicial());
         System.out.println(horaEntrada);
-        
-        
+            
         
     }
 }
