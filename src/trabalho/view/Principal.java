@@ -91,7 +91,7 @@ public class Principal extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 690, 560);
+        jPanel1.setBounds(0, 0, 654, 510);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

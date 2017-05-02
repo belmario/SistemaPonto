@@ -116,7 +116,7 @@ public class RegistroPonto extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(nomeFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
                 .addGap(24, 24, 24))
@@ -169,20 +169,15 @@ public class RegistroPonto extends javax.swing.JFrame {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
         
-        
         int idFuncionario;
         idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
         FuncionarioEntity funcionario = dao.buscaFuncionario(idFuncionario);
         RegistroPontoEntity ponto = dao.buscaCodigoRegistro(idFuncionario);
         System.out.println(ponto.getCodigoRegistroPonto());
-        //ponto.setCodigoRegistroFuncionario(idFuncionario);
-        //ponto.setFuncionario(funcionario);
         ponto.setDataFinal(joda.insereDataLocal());
-        //ponto.setCodigoRegistroPonto(ponto.getCodigoRegistroPonto());
         System.out.println(ponto.getDataFinal());
         System.out.println(ponto.getCodigoRegistroFuncionario());
         RegistroPontoEntity ponto2;
-        //ponto2 = ponto;
         dao.atualizar(ponto);
 
 
