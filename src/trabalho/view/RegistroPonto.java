@@ -50,8 +50,12 @@ public class RegistroPonto extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel1.setText("Código Funcionário");
 
+        codigoFuncionariojTextField.setBackground(new java.awt.Color(63, 134, 195));
+        codigoFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
+        codigoFuncionariojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
         codigoFuncionariojTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 codigoFuncionariojTextFieldFocusLost(evt);
@@ -59,7 +63,11 @@ public class RegistroPonto extends javax.swing.JFrame {
         });
 
         nomeFuncionariojTextField.setEditable(false);
+        nomeFuncionariojTextField.setBackground(new java.awt.Color(63, 134, 195));
+        nomeFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
+        nomeFuncionariojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        jLabel2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel2.setText("Funcionário");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/Inciar turno.png"))); // NOI18N
