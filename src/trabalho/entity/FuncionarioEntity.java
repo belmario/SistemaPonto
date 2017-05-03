@@ -101,6 +101,7 @@ public class FuncionarioEntity {
     }
 
     public boolean getStatusPonto() {
+
         return statusPonto;
     }
 
