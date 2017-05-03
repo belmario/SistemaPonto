@@ -8,8 +8,10 @@ package trabalho.view;
 import javax.swing.JOptionPane;
 import trabalho.entity.FuncionarioEntity;
 import trabalho.entity.RegistroPontoEntity;
+import trabalho.model.FuncionarioDAO;
 import trabalho.model.GenericDAO;
 import trabalho.model.JodaMain;
+import trabalho.model.RegistroDAO;
 
 /**
  *
@@ -22,10 +24,15 @@ public class RegistroPonto extends javax.swing.JFrame {
      */
     public RegistroPonto() {
         initComponents();
+        iniciarTurnoButton.setVisible(false);
+        finalizarTurnoButton.setVisible(false);
     }
 
     JodaMain joda = new JodaMain();
     GenericDAO dao = new GenericDAO();
+    FuncionarioDAO funcDAO = new FuncionarioDAO();
+    RegistroDAO regDAO = new RegistroDAO();
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,7 +52,7 @@ public class RegistroPonto extends javax.swing.JFrame {
         finalizarTurnoButton = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,31 +98,31 @@ public class RegistroPonto extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(iniciarTurnoButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(finalizarTurnoButton)
-                .addGap(26, 26, 26))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(nomeFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(nomeFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(iniciarTurnoButton)
+                    .addComponent(finalizarTurnoButton))
+                .addGap(86, 86, 86))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -123,10 +130,10 @@ public class RegistroPonto extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nomeFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(iniciarTurnoButton)
-                    .addComponent(finalizarTurnoButton))
+                .addGap(15, 15, 15)
+                .addComponent(finalizarTurnoButton)
+                .addGap(18, 18, 18)
+                .addComponent(iniciarTurnoButton)
                 .addGap(24, 24, 24))
         );
 
@@ -140,7 +147,9 @@ public class RegistroPonto extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,9 +159,18 @@ public class RegistroPonto extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         int idFuncionario;
+        boolean statusPonto;
         idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
-        FuncionarioEntity funcionario = dao.buscaFuncionario(idFuncionario);
+        FuncionarioEntity funcionario = funcDAO.buscaFuncionario(idFuncionario);
         nomeFuncionariojTextField.setText(funcionario.getNomeFuncionario());
+        statusPonto = funcionario.getStatusPonto();
+        if(statusPonto == false){
+            iniciarTurnoButton.setVisible(true);   
+            finalizarTurnoButton.setVisible(false);
+        }else{
+            iniciarTurnoButton.setVisible(false);
+            finalizarTurnoButton.setVisible(true);
+        }
 
 
     }//GEN-LAST:event_codigoFuncionariojTextFieldFocusLost
@@ -164,13 +182,19 @@ public class RegistroPonto extends javax.swing.JFrame {
         RegistroPontoEntity ponto = new RegistroPontoEntity();
         int idFuncionario;
         idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
-        FuncionarioEntity funcionario = dao.buscaFuncionario(idFuncionario);
+        FuncionarioEntity funcionario = funcDAO.buscaFuncionario(idFuncionario);
         ponto.setCodigoRegistroFuncionario(idFuncionario);
         ponto.setFuncionario(funcionario);
         ponto.setDataInicial(joda.insereDataLocal());
         ponto.setCodigoBuscaFuncionario(idFuncionario);
-        ponto.setStatusPonto(true);
+        funcionario.setStatusPonto(true);
+        funcDAO.updateFuncionario(funcionario);
         dao.salvar(ponto);
+        
+        Principal telaPrincipal = new Principal();
+        telaPrincipal.setLocationRelativeTo(null);
+        telaPrincipal.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_iniciarTurnoButtonMouseClicked
 
@@ -179,15 +203,20 @@ public class RegistroPonto extends javax.swing.JFrame {
 
         int idFuncionario;
         int horaTrabalhada;
-        idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
-        //FuncionarioEntity funcionario = dao.buscaFuncionario(idFuncionario);
-        RegistroPontoEntity ponto = dao.buscaCodigoRegistro(idFuncionario);
+        idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText()); 
+        RegistroPontoEntity ponto = regDAO.buscaCodigoRegistro(idFuncionario);
+        FuncionarioEntity funcionario = funcDAO.buscaFuncionario(idFuncionario);
         ponto.setDataFinal(joda.insereDataLocal());
-        //RegistroPontoEntity ponto2;
         horaTrabalhada = joda.retornaTempo(ponto);
         ponto.setHoraTrabalhada(horaTrabalhada);
-        dao.atualizar(ponto);
+        funcionario.setStatusPonto(false);
+        funcDAO.updateFuncionario(funcionario);
+        regDAO.updateRegistro(ponto);
         
+        Principal telaPrincipal = new Principal();
+        telaPrincipal.setLocationRelativeTo(null);
+        telaPrincipal.setVisible(true);
+        this.dispose();
 
 
     }//GEN-LAST:event_finalizarTurnoButtonMouseClicked

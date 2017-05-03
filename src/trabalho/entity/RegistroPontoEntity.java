@@ -25,8 +25,6 @@ public class RegistroPontoEntity {
     private int codigoRegistroPonto;
     private Timestamp dataInicial;
     private Timestamp dataFinal;
-    @Column(columnDefinition = "boolean default false")
-    private boolean statusPonto;
     @ManyToOne
     private FuncionarioEntity funcionario;
     private int codigoBuscaFuncionario;
@@ -47,15 +45,6 @@ public class RegistroPontoEntity {
     public void setCodigoBuscaFuncionario(int codigoBuscaFuncionario) {
         this.codigoBuscaFuncionario = codigoBuscaFuncionario;
     }
-
-    public boolean isStatusPonto() {
-        return statusPonto;
-    }
-
-    public void setStatusPonto(boolean statusPonto) {
-        this.statusPonto = statusPonto;
-    }
-
     public int getCodigoRegistroFuncionario() {
         return codigoRegistroPonto;
     }

@@ -19,6 +19,9 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         GenericDAO dao = new GenericDAO();
+        //dao.iniciaSessao();
+        setLocationRelativeTo(null);
+        setSize(654, 510);
     }
 
     /**
@@ -31,28 +34,53 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        acessarTelaCadastroFuncionario = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        acessarTelaListaRegistros = new javax.swing.JLabel();
+        acessarTelaPonto = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setMaximumSize(new java.awt.Dimension(654, 510));
+        setMinimumSize(new java.awt.Dimension(654, 510));
+        setSize(new java.awt.Dimension(2147483647, 2147483647));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(654, 510));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/cadastrarFuncionario.png"))); // NOI18N
+        acessarTelaCadastroFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/cadastrarFuncionario.png"))); // NOI18N
+        acessarTelaCadastroFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                acessarTelaCadastroFuncionarioMouseClicked(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/TIME.png"))); // NOI18N
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/WORK.png"))); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/listarRegistro.png"))); // NOI18N
+        acessarTelaListaRegistros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/listarRegistro.png"))); // NOI18N
+        acessarTelaListaRegistros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                acessarTelaListaRegistrosMouseClicked(evt);
+            }
+        });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/marcarPonto.png"))); // NOI18N
+        acessarTelaPonto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/marcarPonto.png"))); // NOI18N
+        acessarTelaPonto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                acessarTelaPontoMouseClicked(evt);
+            }
+        });
+        acessarTelaPonto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                acessarTelaPontoKeyPressed(evt);
+            }
+        });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/registrarPonto.png"))); // NOI18N
 
@@ -65,9 +93,9 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel5))
+                        .addComponent(acessarTelaCadastroFuncionario, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(acessarTelaListaRegistros, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(acessarTelaPonto))
                     .addComponent(jLabel6))
                 .addGap(0, 0, 0)
                 .addComponent(jLabel2))
@@ -80,11 +108,11 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel4)
+                        .addComponent(acessarTelaCadastroFuncionario)
                         .addGap(1, 1, 1)
-                        .addComponent(jLabel3)
+                        .addComponent(acessarTelaListaRegistros)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
+                        .addComponent(acessarTelaPonto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel6)))
                 .addGap(457, 457, 457))
@@ -95,6 +123,35 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void acessarTelaCadastroFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acessarTelaCadastroFuncionarioMouseClicked
+        // TODO add your handling code here:
+        CadastroFuncionario telaCadastroFuncionario = new CadastroFuncionario();
+        telaCadastroFuncionario.setLocationRelativeTo(null);
+        telaCadastroFuncionario.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_acessarTelaCadastroFuncionarioMouseClicked
+
+    private void acessarTelaListaRegistrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acessarTelaListaRegistrosMouseClicked
+        // TODO add your handling code here:
+        ListaRegistros telaListaRegistros = new ListaRegistros();
+        telaListaRegistros.setLocationRelativeTo(null);
+        telaListaRegistros.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_acessarTelaListaRegistrosMouseClicked
+
+    private void acessarTelaPontoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_acessarTelaPontoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_acessarTelaPontoKeyPressed
+
+    private void acessarTelaPontoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acessarTelaPontoMouseClicked
+        // TODO add your handling code here:
+        RegistroPonto telaRegistroPonto = new RegistroPonto();
+        telaRegistroPonto.setLocationRelativeTo(null);
+        telaRegistroPonto.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_acessarTelaPontoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -132,11 +189,11 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel acessarTelaCadastroFuncionario;
+    private javax.swing.JLabel acessarTelaListaRegistros;
+    private javax.swing.JLabel acessarTelaPonto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

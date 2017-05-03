@@ -5,15 +5,9 @@
  */
 package trabalho.model;
 
-import java.util.List;
 import javax.swing.JOptionPane;
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
-import trabalho.entity.FuncionarioEntity;
-import trabalho.entity.RegistroPontoEntity;
 import trabalho.util.HibernateUtil;
 import trabalho.util.NovoHibernateUtil;
 
@@ -30,11 +24,9 @@ public class GenericDAO<E> {
 
     public GenericDAO() {
         sessao = HibernateUtil.getSessionFactory().openSession();
-       // sessao2 = NovoHibernateUtil.getSessionFactory().openSession();
+        // sessao2 = NovoHibernateUtil.getSessionFactory().openSession();
     }
-
     public void salvar(E entidade) {
-
         try {
             sessao.beginTransaction();
             sessao.save(entidade);
@@ -44,11 +36,14 @@ public class GenericDAO<E> {
             ex.printStackTrace();
         }
     }
+    public void iniciaSessao(){
+    sessao = HibernateUtil.getSessionFactory().openSession();
+}
+    /*
     public void atualizar(E entidade) {
-
         try {
             //sessao.close();
-            sessao2 = HibernateUtil.getSessionFactory().openSession();
+            sessao2 = NovoHibernateUtil.getSessionFactory().openSession();
             sessao2.beginTransaction();
             sessao2.update(entidade);
             sessao2.getTransaction().commit();
@@ -57,30 +52,6 @@ public class GenericDAO<E> {
         } catch (HibernateException ex) {
             ex.printStackTrace();
         }
-
-    }  
-
-    public FuncionarioEntity buscaFuncionario(int codigoFuncionairo) {
-        String valorBuscado = "from Funcionario where codigoFuncionario = " + codigoFuncionairo;
-        org.hibernate.Query query = sessao.createQuery(valorBuscado);
-        query.setMaxResults(1);
-        FuncionarioEntity funcionario = (FuncionarioEntity) query.uniqueResult();
-        return funcionario;
-
-    }
-
-    public RegistroPontoEntity buscaCodigoRegistro(int codigoFuncionario) {
-        RegistroPontoEntity registroPonto = null;
-        sessao.beginTransaction();
-        Criteria criteria = sessao.createCriteria(RegistroPontoEntity.class);
-        criteria.add(Restrictions.eq("codigoBuscaFuncionario", codigoFuncionario));
-        criteria.addOrder(Order.desc("codigoRegistroPonto"));
-        criteria.setMaxResults(1);
-        //Retorna os dados da consulta
-        List<RegistroPontoEntity> listaRegistro = criteria.list();
-        registroPonto = (RegistroPontoEntity) listaRegistro.get(0);
-
-        return registroPonto;
-    }
-
+    } 
+*/
 }
