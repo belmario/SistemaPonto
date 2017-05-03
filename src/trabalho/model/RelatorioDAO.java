@@ -26,7 +26,7 @@ import static org.hibernate.internal.util.ConfigHelper.getResourceAsStream;
  */
 public class RelatorioDAO {
     
-    public void geraRelatorioFuncionario (String funcionario) {
+    public void geraRelatorioFuncionario (int funcionario) {
 
         HashMap filtro = new HashMap();
         filtro.put("codigoFuncionario", funcionario);
@@ -48,10 +48,10 @@ public class RelatorioDAO {
         }
     }
     
-    public void geraRelatorioRegistroFuncionario (String codigo) {
+    public void geraRelatorioRegistroFuncionario (int codigo) {
 
         HashMap filtro = new HashMap();
-        filtro.put("codigoRegistro", codigo);
+        filtro.put("codigoRegistroPonto", codigo);
         
         try {
             InputStream inputStream = getResourceAsStream("/relatorios/RelatorioRegistroFuncionario.jasper");

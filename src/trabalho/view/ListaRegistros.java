@@ -5,6 +5,8 @@
  */
 package trabalho.view;
 
+import trabalho.entity.FuncionarioEntity;
+import trabalho.entity.RegistroPontoEntity;
 import trabalho.model.RelatorioDAO;
 
 /**
@@ -105,13 +107,17 @@ public class ListaRegistros extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here: FUNÇÕES AQ
         RelatorioDAO relatorio = new RelatorioDAO();
+        RegistroPontoEntity registro = new RegistroPontoEntity();
         
+        relatorio.geraRelatorioRegistroFuncionario(registro.getCodigoRegistroPonto());
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here: FUNÇÕES AQ
         RelatorioDAO relatorio = new RelatorioDAO();
+        FuncionarioEntity funcionario = new FuncionarioEntity();
         
+        relatorio.geraRelatorioFuncionario(funcionario.getCodigoFuncionario());
     }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
