@@ -60,17 +60,14 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        idadeFuncionariojTextField.setEditable(false);
         idadeFuncionariojTextField.setBackground(new java.awt.Color(63, 134, 195));
         idadeFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
         idadeFuncionariojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        cpfFuncionariojTextField.setEditable(false);
         cpfFuncionariojTextField.setBackground(new java.awt.Color(63, 134, 195));
         cpfFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
         cpfFuncionariojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        funcaoFuncionariojTextField.setEditable(false);
         funcaoFuncionariojTextField.setBackground(new java.awt.Color(63, 134, 195));
         funcaoFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
         funcaoFuncionariojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -93,7 +90,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel4.setText("Função");
 
-        telefoneFuncionariojTextField.setEditable(false);
         telefoneFuncionariojTextField.setBackground(new java.awt.Color(63, 134, 195));
         telefoneFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
         telefoneFuncionariojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -101,7 +97,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel5.setText("Idade");
 
-        emailFuncionariojTextField.setEditable(false);
         emailFuncionariojTextField.setBackground(new java.awt.Color(63, 134, 195));
         emailFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
         emailFuncionariojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -111,7 +106,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         codigoFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
         codigoFuncionariojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        nomeFuncionariojTextField.setEditable(false);
         nomeFuncionariojTextField.setBackground(new java.awt.Color(63, 134, 195));
         nomeFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
         nomeFuncionariojTextField.setCaretColor(new java.awt.Color(255, 255, 255));

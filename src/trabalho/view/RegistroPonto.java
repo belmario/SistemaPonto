@@ -178,16 +178,16 @@ public class RegistroPonto extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         int idFuncionario;
+        int horaTrabalhada;
         idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
         //FuncionarioEntity funcionario = dao.buscaFuncionario(idFuncionario);
         RegistroPontoEntity ponto = dao.buscaCodigoRegistro(idFuncionario);
-        System.out.println(ponto.getCodigoRegistroPonto());
         ponto.setDataFinal(joda.insereDataLocal());
-        System.out.println(ponto.getDataFinal());
-        System.out.println(ponto.getCodigoRegistroFuncionario());
         //RegistroPontoEntity ponto2;
+        horaTrabalhada = joda.retornaTempo(ponto);
+        ponto.setHoraTrabalhada(horaTrabalhada);
         dao.atualizar(ponto);
-        joda.retornaTempo(ponto);
+        
 
 
     }//GEN-LAST:event_finalizarTurnoButtonMouseClicked

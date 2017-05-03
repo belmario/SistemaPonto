@@ -30,6 +30,15 @@ public class RegistroPontoEntity {
     @ManyToOne
     private FuncionarioEntity funcionario;
     private int codigoBuscaFuncionario;
+    private int horaTrabalhada;
+
+    public int getHoraTrabalhada() {
+        return horaTrabalhada;
+    }
+
+    public void setHoraTrabalhada(int horaTrabalhada) {
+        this.horaTrabalhada = horaTrabalhada;
+    }
 
     public int getCodigoBuscaFuncionario() {
         return codigoBuscaFuncionario;
@@ -37,7 +46,7 @@ public class RegistroPontoEntity {
 
     public void setCodigoBuscaFuncionario(int codigoBuscaFuncionario) {
         this.codigoBuscaFuncionario = codigoBuscaFuncionario;
-    }   
+    }
 
     public boolean isStatusPonto() {
         return statusPonto;
