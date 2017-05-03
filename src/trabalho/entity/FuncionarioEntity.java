@@ -30,6 +30,8 @@ public class FuncionarioEntity {
     private String funcaoFuncionario;
     @Column(unique = true)
     private String emailFuncionario;
+    @Column(columnDefinition = "boolean default false")
+    private boolean statusPonto;
     private String telefoneFuncionairo;
     @OneToMany(targetEntity = RegistroPontoEntity.class)
     private List<RegistroPontoEntity> registroPonto;
@@ -96,6 +98,14 @@ public class FuncionarioEntity {
 
     public void setTelefoneFuncionairo(String telefoneFuncionairo) {
         this.telefoneFuncionairo = telefoneFuncionairo;
+    }
+
+    public boolean isStatusPonto() {
+        return statusPonto;
+    }
+
+    public void setStatusPonto(boolean statusPonto) {
+        this.statusPonto = statusPonto;
     }
 
 }

@@ -23,10 +23,10 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     public CadastroFuncionario() {
         initComponents();
         setLocationRelativeTo(null);
-        
 
     }
     GenericDAO dao = new GenericDAO();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,7 +52,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         codigoFuncionariojTextField = new javax.swing.JTextField();
         nomeFuncionariojTextField = new javax.swing.JTextField();
         cadastrarFuncionarioButton = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        cancelarCadastro = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -117,7 +117,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/Cancelar.png"))); // NOI18N
+        cancelarCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/Cancelar.png"))); // NOI18N
+        cancelarCadastro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelarCadastroMouseClicked(evt);
+            }
+        });
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/JanelaCadastroFuncionario.png"))); // NOI18N
 
@@ -129,7 +134,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addComponent(cadastrarFuncionarioButton)
                 .addGap(32, 32, 32)
-                .addComponent(jLabel9)
+                .addComponent(cancelarCadastro)
                 .addContainerGap(34, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -200,7 +205,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cadastrarFuncionarioButton)
-                    .addComponent(jLabel9))
+                    .addComponent(cancelarCadastro))
                 .addGap(20, 20, 20))
         );
 
@@ -218,14 +223,22 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cancelarCadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelarCadastroMouseClicked
+        // TODO add your handling code here:
+        Principal telaPrincipal = new Principal();
+        telaPrincipal.setLocationRelativeTo(null);
+        telaPrincipal.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_cancelarCadastroMouseClicked
+
     private void cadastrarFuncionarioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrarFuncionarioButtonMouseClicked
         // TODO add your handling code here:
         JodaMain joda = new JodaMain();
         FuncionarioEntity funcionario = new FuncionarioEntity();
-
         try {
             if (cpfFuncionariojTextField.getText().isEmpty()
-                    || nomeFuncionariojTextField.getText().isEmpty()) {
+                || nomeFuncionariojTextField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Todos os campos com * são obrigatorios!");
             } else {
                 funcionario.setNomeFuncionario(nomeFuncionariojTextField.getText());
@@ -237,11 +250,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 //funcionario.setDataInicial(joda.insereDataLocal());
                 dao.salvar(funcionario);
             }
-
         } catch (Exception ex) {
 
         }
-        
     }//GEN-LAST:event_cadastrarFuncionarioButtonMouseClicked
 
     /**
@@ -281,6 +292,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cadastrarFuncionarioButton;
+    private javax.swing.JLabel cancelarCadastro;
     private javax.swing.JTextField codigoFuncionariojTextField;
     private javax.swing.JTextField cpfFuncionariojTextField;
     private javax.swing.JTextField emailFuncionariojTextField;
@@ -294,7 +306,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nomeFuncionariojTextField;
     private javax.swing.JTextField telefoneFuncionariojTextField;
