@@ -26,13 +26,13 @@ import static org.hibernate.internal.util.ConfigHelper.getResourceAsStream;
  */
 public class RelatorioDAO {
     
-    public void geraRelatorioVendedor(String Vendedor) {
+    public void geraRelatorioFuncionario (String funcionario) {
 
         HashMap filtro = new HashMap();
-        //filtro.put();
+        filtro.put("codigoFuncionario", funcionario);
         
         try {
-            InputStream inputStream = getResourceAsStream("/relatorios/Relatorio.jasper");
+            InputStream inputStream = getResourceAsStream("/relatorios/RelatorioFuncionario.jasper");
 
             JasperReport relatorio = (JasperReport) JRLoader.loadObject(inputStream);
 
@@ -48,13 +48,13 @@ public class RelatorioDAO {
         }
     }
     
-    public void geraRelatorioCPF(String cpfCliente) {
+    public void geraRelatorioRegistroFuncionario (String codigo) {
 
         HashMap filtro = new HashMap();
-        //filtro.put();
+        filtro.put("codigoRegistro", codigo);
         
         try {
-            InputStream inputStream = getResourceAsStream("/relatorios/Relatorio.jasper");
+            InputStream inputStream = getResourceAsStream("/relatorios/RelatorioRegistroFuncionario.jasper");
 
             JasperReport relatorio = (JasperReport) JRLoader.loadObject(inputStream);
 

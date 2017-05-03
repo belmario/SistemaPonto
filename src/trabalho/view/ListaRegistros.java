@@ -5,6 +5,8 @@
  */
 package trabalho.view;
 
+import trabalho.model.RelatorioDAO;
+
 /**
  *
  * @author Tecnico
@@ -102,10 +104,14 @@ public class ListaRegistros extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here: FUNÇÕES AQ
+        RelatorioDAO relatorio = new RelatorioDAO();
+        
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here: FUNÇÕES AQ
+        RelatorioDAO relatorio = new RelatorioDAO();
+        
     }//GEN-LAST:event_jLabel1MouseClicked
 
     /**

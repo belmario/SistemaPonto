@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2017-05-03T19:07:54 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioRegistroFuncionario" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b51daa4e-3fc5-4d6c-abb5-2c7c4948be85">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sistemadeponto.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[select * from registrofuncionario]]>
+	</queryString>
+	<field name="codigoRegistroPonto" class="java.lang.Integer"/>
+	<field name="codigoBuscaFuncionario" class="java.lang.Integer"/>
+	<field name="dataFinal" class="java.sql.Timestamp"/>
+	<field name="dataInicial" class="java.sql.Timestamp"/>
+	<field name="statusPonto" class="java.lang.Boolean"/>
+	<field name="funcionario_codigoFuncionario" class="java.lang.Integer"/>
+	<field name="minutosTrabalhados" class="java.lang.Integer"/>
+	<field name="statusAtraso" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="220" y="21" width="360" height="36" uuid="f0d66124-38ce-4a98-89ad-1bd088b1f2d2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tempus Sans ITC" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatótio de Registro de Ponto]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="180" height="30" uuid="8e990f5d-b3c3-4d03-abd9-87934eb0170b"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dados do registro:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="800" height="1" uuid="e820578b-9043-48f6-b39a-ca3ebf72dc3e"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="60" height="30" uuid="5ad40eca-90ce-4436-b089-adb6bb4715b4"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="0" width="80" height="30" uuid="4af8b0cd-b700-4382-ad69-5670d1b09618"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Inicial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="2" width="80" height="30" uuid="fe0af620-1c8d-4530-9539-c62d9697330b"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Final]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="0" width="80" height="30" uuid="aa60f6c8-2fce-48c3-9076-463111b9d353"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Funcionário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="2" width="80" height="30" uuid="2a6a0e2a-d0a9-49db-896e-ece4330f0c6f"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status Ponto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="80" height="30" uuid="7e99c4a7-0892-499d-9fb0-232f8a0e6e24"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status Atraso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="2" width="120" height="30" uuid="d0f21741-cb49-453d-a412-19b0669a4f63"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Minutos Trabalhados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="710" y="2" width="80" height="30" uuid="e7ec4006-8398-423c-80f2-074ca4f5015d"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código Busca]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="60" height="30" uuid="a49f1bc6-998e-4e6e-9813-c90e15014a72"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tempus Sans ITC" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoRegistroPonto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="3" width="100" height="30" uuid="c3122709-2b17-4a06-9cdc-1cc1fe6139b0"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataInicial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="3" width="80" height="30" uuid="041270f7-093b-45c0-a0f7-6647fcccbb4d"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataFinal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="3" width="80" height="30" uuid="b0f675bc-35e0-409c-ab00-8feac13ec3b6"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcionario_codigoFuncionario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="3" width="80" height="30" uuid="43b9514b-e43e-4a38-ad96-33acade685ae"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{statusPonto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="100" height="30" uuid="fc497428-1479-4f70-9fb0-4caed8344a09"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{statusAtraso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="590" y="0" width="100" height="30" uuid="d99d955f-7c0e-4fa7-af91-6124a838b629"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{minutosTrabalhados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="710" y="0" width="80" height="30" uuid="a86db445-e7a7-4271-abd4-32dfffa19975"/>
+				<textElement>
+					<font fontName="Tempus Sans ITC" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoBuscaFuncionario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
