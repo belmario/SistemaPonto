@@ -67,6 +67,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         cpfFuncionariojTextField.setBackground(new java.awt.Color(63, 134, 195));
         cpfFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
         cpfFuncionariojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
+        try{
+            javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter("###.###.###-##");
+
+            cpfFuncionariojTextField = new javax.swing.JFormattedTextField(cpf);
+        }catch(Exception e){
+        }
 
         funcaoFuncionariojTextField.setBackground(new java.awt.Color(63, 134, 195));
         funcaoFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,6 +99,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         telefoneFuncionariojTextField.setBackground(new java.awt.Color(63, 134, 195));
         telefoneFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
         telefoneFuncionariojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
+        try{
+            javax.swing.text.MaskFormatter telefone = new javax.swing.text.MaskFormatter("(##) #####-####");
+
+            telefoneFuncionariojTextField = new javax.swing.JFormattedTextField(telefone);
+        }catch(Exception e){
+        }
 
         jLabel5.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel5.setText("Idade");
@@ -238,8 +250,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         FuncionarioEntity funcionario = new FuncionarioEntity();
         try {
             if (cpfFuncionariojTextField.getText().isEmpty()
-                || nomeFuncionariojTextField.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Todos os campos com * são obrigatorios!");
+                    || nomeFuncionariojTextField.getText().isEmpty()
+                    || idadeFuncionariojTextField.getText().isEmpty()
+                    || emailFuncionariojTextField.getText().isEmpty()
+                    || telefoneFuncionariojTextField.getText().isEmpty()
+                    || funcaoFuncionariojTextField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Todos os campos são obrigatorios!");
             } else {
                 funcionario.setNomeFuncionario(nomeFuncionariojTextField.getText());
                 funcionario.setIdadeFuncionario(Integer.parseInt(idadeFuncionariojTextField.getText()));
@@ -247,8 +263,13 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 funcionario.setEmailFuncionario(emailFuncionariojTextField.getText());
                 funcionario.setTelefoneFuncionairo(telefoneFuncionariojTextField.getText());
                 funcionario.setFuncaoFuncionario(funcaoFuncionariojTextField.getText());
-                //funcionario.setDataInicial(joda.insereDataLocal());
                 dao.salvar(funcionario);
+                nomeFuncionariojTextField.setText(null);
+                cpfFuncionariojTextField.setText(null);
+                idadeFuncionariojTextField.setText(null);
+                emailFuncionariojTextField.setText(null);
+                telefoneFuncionariojTextField.setText(null);
+                funcaoFuncionariojTextField.setText(null);
             }
         } catch (Exception ex) {
 

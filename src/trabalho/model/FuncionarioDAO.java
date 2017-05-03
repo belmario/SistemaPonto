@@ -38,7 +38,7 @@ public class FuncionarioDAO {
             sessao.beginTransaction();
             sessao.update(funcionario);
             sessao.getTransaction().commit();
-            JOptionPane.showMessageDialog(null, "Registro efetuado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Registro gravado com sucesso!");
             sessao.close();
         } catch (HibernateException ex) {
             ex.printStackTrace();

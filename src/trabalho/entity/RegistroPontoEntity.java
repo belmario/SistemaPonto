@@ -28,14 +28,23 @@ public class RegistroPontoEntity {
     @ManyToOne
     private FuncionarioEntity funcionario;
     private int codigoBuscaFuncionario;
-    private int horaTrabalhada;
+    private int minutosTrabalhados;
+    private String statusAtraso;
 
-    public int getHoraTrabalhada() {
-        return horaTrabalhada;
+    public String getStatusAtraso() {
+        return statusAtraso;
     }
 
-    public void setHoraTrabalhada(int horaTrabalhada) {
-        this.horaTrabalhada = horaTrabalhada;
+    public void setStatusAtraso(String statusAtraso) {
+        this.statusAtraso = statusAtraso;
+    }
+
+    public int getMinutosTrabalhados() {
+        return minutosTrabalhados;
+    }
+
+    public void setMinutosTrabalhados(int minutosTrabalhados) {
+        this.minutosTrabalhados = minutosTrabalhados;
     }
 
     public int getCodigoBuscaFuncionario() {
@@ -45,6 +54,7 @@ public class RegistroPontoEntity {
     public void setCodigoBuscaFuncionario(int codigoBuscaFuncionario) {
         this.codigoBuscaFuncionario = codigoBuscaFuncionario;
     }
+
     public int getCodigoRegistroFuncionario() {
         return codigoRegistroPonto;
     }

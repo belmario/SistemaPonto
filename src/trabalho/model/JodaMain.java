@@ -32,8 +32,21 @@ public class JodaMain {
         DateTime dataHoraSaida = new DateTime(registroPonto.getDataFinal());
         Period tempoTrabalhado = new Period(dataHoraEntrada,dataHoraSaida);
         int horaLocal = tempoTrabalhado.getMinutes();
-        
         System.out.println(horaLocal);
         return horaLocal;
+    }
+    
+    public String informaAtraso(RegistroPontoEntity registro){
+        RegistroPontoEntity registroPonto= registro;
+        String statusAtraso = null;
+        int minutosTrabalhados = registroPonto.getMinutosTrabalhados();
+        if(minutosTrabalhados == 540){
+            statusAtraso = "Tempo correto";
+        }else if(minutosTrabalhados > 540){
+            statusAtraso = "Hora extra";         
+        }else if(minutosTrabalhados < 540){
+            statusAtraso = "Atrasado";         
+        }
+        return statusAtraso;
     }
 }

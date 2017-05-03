@@ -27,12 +27,11 @@ public class RegistroPonto extends javax.swing.JFrame {
         iniciarTurnoButton.setVisible(false);
         finalizarTurnoButton.setVisible(false);
     }
-
+    
     JodaMain joda = new JodaMain();
     GenericDAO dao = new GenericDAO();
     FuncionarioDAO funcDAO = new FuncionarioDAO();
     RegistroDAO regDAO = new RegistroDAO();
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -164,20 +163,20 @@ public class RegistroPonto extends javax.swing.JFrame {
         FuncionarioEntity funcionario = funcDAO.buscaFuncionario(idFuncionario);
         nomeFuncionariojTextField.setText(funcionario.getNomeFuncionario());
         statusPonto = funcionario.getStatusPonto();
-        if(statusPonto == false){
-            iniciarTurnoButton.setVisible(true);   
+        if (statusPonto == false) {
+            iniciarTurnoButton.setVisible(true);
             finalizarTurnoButton.setVisible(false);
-        }else{
+        } else {
             iniciarTurnoButton.setVisible(false);
             finalizarTurnoButton.setVisible(true);
         }
-
+        
 
     }//GEN-LAST:event_codigoFuncionariojTextFieldFocusLost
 
     private void iniciarTurnoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarTurnoButtonMouseClicked
         // TODO add your handling code here:
-        
+
         //RegistroPontoEntity ponto = new RegistroPontoEntity();
         RegistroPontoEntity ponto = new RegistroPontoEntity();
         int idFuncionario;
@@ -189,8 +188,9 @@ public class RegistroPonto extends javax.swing.JFrame {
         ponto.setCodigoBuscaFuncionario(idFuncionario);
         funcionario.setStatusPonto(true);
         funcDAO.updateFuncionario(funcionario);
+        String statusAtraso = joda.informaAtraso(ponto);
+        ponto.setStatusAtraso(statusAtraso);
         dao.salvar(ponto);
-        
         Principal telaPrincipal = new Principal();
         telaPrincipal.setLocationRelativeTo(null);
         telaPrincipal.setVisible(true);
@@ -203,12 +203,12 @@ public class RegistroPonto extends javax.swing.JFrame {
 
         int idFuncionario;
         int horaTrabalhada;
-        idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText()); 
+        idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
         RegistroPontoEntity ponto = regDAO.buscaCodigoRegistro(idFuncionario);
         FuncionarioEntity funcionario = funcDAO.buscaFuncionario(idFuncionario);
         ponto.setDataFinal(joda.insereDataLocal());
         horaTrabalhada = joda.retornaTempo(ponto);
-        ponto.setHoraTrabalhada(horaTrabalhada);
+        ponto.setMinutosTrabalhados(horaTrabalhada);
         funcionario.setStatusPonto(false);
         funcDAO.updateFuncionario(funcionario);
         regDAO.updateRegistro(ponto);
@@ -217,7 +217,7 @@ public class RegistroPonto extends javax.swing.JFrame {
         telaPrincipal.setLocationRelativeTo(null);
         telaPrincipal.setVisible(true);
         this.dispose();
-
+        
 
     }//GEN-LAST:event_finalizarTurnoButtonMouseClicked
 

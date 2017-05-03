@@ -173,6 +173,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{&#xd;&#xa; javax.swing.text.MaskFormatter cpf = new javax.swing.text.MaskFormatter(&quot;###.###.###-##&quot;);&#xd;&#xa;&#xd;&#xa;cpfFuncionariojTextField = new javax.swing.JFormattedTextField(cpf);&#xd;&#xa; }catch(Exception e){&#xd;&#xa;}"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="funcaoFuncionariojTextField">
           <Properties>
@@ -247,6 +250,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="try{&#xd;&#xa; javax.swing.text.MaskFormatter telefone = new javax.swing.text.MaskFormatter(&quot;(##) #####-####&quot;);&#xd;&#xa;&#xd;&#xa; telefoneFuncionariojTextField = new javax.swing.JFormattedTextField(telefone);&#xd;&#xa; }catch(Exception e){&#xd;&#xa;}"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
