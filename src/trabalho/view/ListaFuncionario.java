@@ -8,6 +8,7 @@ package trabalho.view;
 import trabalho.entity.FuncionarioEntity;
 import trabalho.model.FuncionarioDAO;
 import trabalho.model.RelatorioDAO;
+import trabalho.model.RelatorioFuncionarioModel;
 
 /**
  *
@@ -18,6 +19,9 @@ public class ListaFuncionario extends javax.swing.JFrame {
     /**
      * Creates new form ListaFuncionario
      */
+    
+    private RelatorioFuncionarioModel model = new RelatorioFuncionarioModel();
+    
     public ListaFuncionario() {
         initComponents();
     }
@@ -33,7 +37,10 @@ public class ListaFuncionario extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         codigoFuncionariojTextField = new javax.swing.JTextField();
-        listarFuncionariojToggleButton = new javax.swing.JToggleButton();
+        listarPcodigoFuncionariojToggleButton = new javax.swing.JToggleButton();
+        listarTodosFuncionariosjButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        teabelaFuncionairosjTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,27 +52,52 @@ public class ListaFuncionario extends javax.swing.JFrame {
             }
         });
 
-        listarFuncionariojToggleButton.setText("Listar");
-        listarFuncionariojToggleButton.addActionListener(new java.awt.event.ActionListener() {
+        listarPcodigoFuncionariojToggleButton.setText("Buscar por código");
+        listarPcodigoFuncionariojToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarFuncionariojToggleButtonActionPerformed(evt);
+                listarPcodigoFuncionariojToggleButtonActionPerformed(evt);
             }
         });
+
+        listarTodosFuncionariosjButton.setText("Listar Todos");
+        listarTodosFuncionariosjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarTodosFuncionariosjButtonActionPerformed(evt);
+            }
+        });
+
+        teabelaFuncionairosjTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(teabelaFuncionairosjTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(listarFuncionariojToggleButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(listarPcodigoFuncionariojToggleButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(listarTodosFuncionariosjButton)
+                                .addGap(24, 24, 24))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,9 +106,13 @@ public class ListaFuncionario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(listarFuncionariojToggleButton)
-                .addGap(27, 27, 27))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(listarPcodigoFuncionariojToggleButton)
+                    .addComponent(listarTodosFuncionariosjButton))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -86,7 +122,7 @@ public class ListaFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_codigoFuncionariojTextFieldFocusLost
 
-    private void listarFuncionariojToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarFuncionariojToggleButtonActionPerformed
+    private void listarPcodigoFuncionariojToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarPcodigoFuncionariojToggleButtonActionPerformed
         // TODO add your handling code here:
         int idFuncionario;
         FuncionarioDAO funcDAO = new FuncionarioDAO();
@@ -95,7 +131,15 @@ public class ListaFuncionario extends javax.swing.JFrame {
         RelatorioDAO relatorio = new RelatorioDAO();
         relatorio.geraRelatorioFuncionario(funcionario.getCodigoFuncionario());
 
-    }//GEN-LAST:event_listarFuncionariojToggleButtonActionPerformed
+    }//GEN-LAST:event_listarPcodigoFuncionariojToggleButtonActionPerformed
+
+    private void listarTodosFuncionariosjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarTodosFuncionariosjButtonActionPerformed
+        // TODO add your handling code here:
+       this.model = new RelatorioFuncionarioModel();
+       this.teabelaFuncionairosjTable.setModel(model);
+        
+  
+    }//GEN-LAST:event_listarTodosFuncionariosjButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,6 +179,9 @@ public class ListaFuncionario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codigoFuncionariojTextField;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JToggleButton listarFuncionariojToggleButton;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToggleButton listarPcodigoFuncionariojToggleButton;
+    private javax.swing.JButton listarTodosFuncionariosjButton;
+    private javax.swing.JTable teabelaFuncionairosjTable;
     // End of variables declaration//GEN-END:variables
 }

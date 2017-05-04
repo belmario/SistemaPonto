@@ -33,6 +33,25 @@ public class FuncionarioDAO {
         return funcionario;
 
     }
+        public List<FuncionarioEntity> selecionaTodosFuncionarios() {
+
+        List<FuncionarioEntity> listaFuncionario = new ArrayList<>();
+
+        sessao = HibernateUtil.getSessionFactory().openSession();
+
+        sessao.beginTransaction();
+
+        //Cria criterios ou filtros ou condições de seleção
+        Criteria criteria = sessao.createCriteria(FuncionarioEntity.class);
+
+        criteria.addOrder(Order.asc("nomeFuncionario"));
+
+        //Retorna os dados da consulta
+        listaFuncionario = criteria.list();
+
+        return listaFuncionario;
+    }
+    
 
     public void updateFuncionario(FuncionarioEntity funcionario) {
         try {
