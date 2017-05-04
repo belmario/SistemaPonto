@@ -35,34 +35,28 @@ public class ListaFuncionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         codigoFuncionariojTextField = new javax.swing.JTextField();
-        listarPcodigoFuncionariojToggleButton = new javax.swing.JToggleButton();
-        listarTodosFuncionariosjButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         teabelaFuncionairosjTable = new javax.swing.JTable();
+        listarPcodigoFuncionario = new javax.swing.JLabel();
+        listarTodosFuncionarios = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setText("Código Funcionario");
 
+        codigoFuncionariojTextField.setBackground(new java.awt.Color(63, 134, 195));
+        codigoFuncionariojTextField.setForeground(new java.awt.Color(255, 255, 255));
+        codigoFuncionariojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
         codigoFuncionariojTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 codigoFuncionariojTextFieldFocusLost(evt);
-            }
-        });
-
-        listarPcodigoFuncionariojToggleButton.setText("Buscar por código");
-        listarPcodigoFuncionariojToggleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarPcodigoFuncionariojToggleButtonActionPerformed(evt);
-            }
-        });
-
-        listarTodosFuncionariosjButton.setText("Listar Todos");
-        listarTodosFuncionariosjButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarTodosFuncionariosjButtonActionPerformed(evt);
             }
         });
 
@@ -76,36 +70,83 @@ public class ListaFuncionario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(teabelaFuncionairosjTable);
 
+        listarPcodigoFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/BuscarPorCodigo.png"))); // NOI18N
+        listarPcodigoFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listarPcodigoFuncionarioMouseClicked(evt);
+            }
+        });
+
+        listarTodosFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/ListarTodos.png"))); // NOI18N
+        listarTodosFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listarTodosFuncionariosMouseClicked(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/homer gif.gif"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/Voltar.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(listarPcodigoFuncionario)
+                        .addGap(18, 18, 18)
+                        .addComponent(listarTodosFuncionarios)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(jLabel2)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(listarPcodigoFuncionario)
+                    .addComponent(listarTodosFuncionarios)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(listarPcodigoFuncionariojToggleButton)
-                    .addComponent(jLabel1))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(listarTodosFuncionariosjButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(codigoFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(listarPcodigoFuncionariojToggleButton)
-                    .addComponent(listarTodosFuncionariosjButton))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -115,7 +156,7 @@ public class ListaFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_codigoFuncionariojTextFieldFocusLost
 
-    private void listarPcodigoFuncionariojToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarPcodigoFuncionariojToggleButtonActionPerformed
+    private void listarPcodigoFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listarPcodigoFuncionarioMouseClicked
         // TODO add your handling code here:
         int idFuncionario;
         FuncionarioDAO funcDAO = new FuncionarioDAO();
@@ -124,15 +165,22 @@ public class ListaFuncionario extends javax.swing.JFrame {
         RelatorioDAO relatorio = new RelatorioDAO();
         relatorio.geraRelatorioFuncionario(funcionario.getCodigoFuncionario());
 
-    }//GEN-LAST:event_listarPcodigoFuncionariojToggleButtonActionPerformed
+    }//GEN-LAST:event_listarPcodigoFuncionarioMouseClicked
 
-    private void listarTodosFuncionariosjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarTodosFuncionariosjButtonActionPerformed
+    private void listarTodosFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listarTodosFuncionariosMouseClicked
         // TODO add your handling code here:
-       this.model = new RelatorioFuncionarioModel();
-       this.teabelaFuncionairosjTable.setModel(model);
-        
-  
-    }//GEN-LAST:event_listarTodosFuncionariosjButtonActionPerformed
+         this.model = new RelatorioFuncionarioModel();
+         this.teabelaFuncionairosjTable.setModel(model);
+
+    }//GEN-LAST:event_listarTodosFuncionariosMouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        Principal telaPrincipal = new Principal();
+        telaPrincipal.setLocationRelativeTo(null);
+        telaPrincipal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -172,9 +220,12 @@ public class ListaFuncionario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codigoFuncionariojTextField;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToggleButton listarPcodigoFuncionariojToggleButton;
-    private javax.swing.JButton listarTodosFuncionariosjButton;
+    private javax.swing.JLabel listarPcodigoFuncionario;
+    private javax.swing.JLabel listarTodosFuncionarios;
     private javax.swing.JTable teabelaFuncionairosjTable;
     // End of variables declaration//GEN-END:variables
 }

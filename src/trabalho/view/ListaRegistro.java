@@ -39,12 +39,15 @@ public class ListaRegistro extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        BuscarCodigo = new javax.swing.JLabel();
+        codigoRegistrojTextField = new javax.swing.JTextField();
+        ListarTodos = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaRegistroPontojTable = new javax.swing.JTable();
-        ListarTodos = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        codigoRegistrojTextField = new javax.swing.JTextField();
-        BuscarCodigo = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -74,6 +77,33 @@ public class ListaRegistro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setText("Código do Registro");
+
+        BuscarCodigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/BuscarPorCodigo.png"))); // NOI18N
+        BuscarCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BuscarCodigoMouseClicked(evt);
+            }
+        });
+
+        codigoRegistrojTextField.setBackground(new java.awt.Color(63, 134, 195));
+        codigoRegistrojTextField.setForeground(new java.awt.Color(255, 255, 255));
+        codigoRegistrojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
+        codigoRegistrojTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codigoRegistrojTextFieldActionPerformed(evt);
+            }
+        });
+
+        ListarTodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/ListarTodos.png"))); // NOI18N
+        ListarTodos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListarTodosMouseClicked(evt);
+            }
+        });
+
         tabelaRegistroPontojTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -87,64 +117,65 @@ public class ListaRegistro extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tabelaRegistroPontojTable);
 
-        ListarTodos.setText("Listar Todos");
-        ListarTodos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListarTodosActionPerformed(evt);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/homer gif.gif"))); // NOI18N
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/Voltar.png"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
             }
         });
 
-        jLabel2.setText("Código do Registro");
-
-        codigoRegistrojTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codigoRegistrojTextFieldActionPerformed(evt);
-            }
-        });
-
-        BuscarCodigo.setText("Buscar Código");
-        BuscarCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarCodigoActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(codigoRegistrojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(BuscarCodigo)
+                        .addGap(27, 27, 27)
+                        .addComponent(ListarTodos)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addGap(57, 57, 57)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(codigoRegistrojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ListarTodos)
+                    .addComponent(BuscarCodigo)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(BuscarCodigo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addGap(30, 30, 30)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(codigoRegistrojTextField)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(ListarTodos)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(110, 110, 110))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 23, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(codigoRegistrojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ListarTodos)
-                    .addComponent(BuscarCodigo))
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,21 +196,27 @@ public class ListaRegistro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_codigoRegistrojTextFieldActionPerformed
 
-    private void ListarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarTodosActionPerformed
-        // TODO add your handling code here:
-       this.model = new RelatorioRegistroPontoModel();
-       this.tabelaRegistroPontojTable.setModel(model);
-       
-    }//GEN-LAST:event_ListarTodosActionPerformed
-
-    private void BuscarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarCodigoActionPerformed
+    private void BuscarCodigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarCodigoMouseClicked
         // TODO add your handling code here:
         int idRegistro;
         RegistroDAO DAO = new RegistroDAO();
         idRegistro = Integer.parseInt(codigoRegistrojTextField.getText());
         RegistroPontoEntity funcionario = DAO.buscaCodigoRegistro(idRegistro);
-        
-    }//GEN-LAST:event_BuscarCodigoActionPerformed
+    }//GEN-LAST:event_BuscarCodigoMouseClicked
+
+    private void ListarTodosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListarTodosMouseClicked
+        // TODO add your handling code here:
+        this.model = new RelatorioRegistroPontoModel();
+        this.tabelaRegistroPontojTable.setModel(model);
+    }//GEN-LAST:event_ListarTodosMouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        Principal telaPrincipal = new Principal();
+        telaPrincipal.setLocationRelativeTo(null);
+        telaPrincipal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -217,13 +254,16 @@ public class ListaRegistro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BuscarCodigo;
-    private javax.swing.JButton ListarTodos;
+    private javax.swing.JLabel BuscarCodigo;
+    private javax.swing.JLabel ListarTodos;
     private javax.swing.JTextField codigoRegistrojTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
