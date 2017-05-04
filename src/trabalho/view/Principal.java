@@ -21,7 +21,7 @@ public class Principal extends javax.swing.JFrame {
         GenericDAO dao = new GenericDAO();
         //dao.iniciaSessao();
         setLocationRelativeTo(null);
-        setSize(654, 510);
+        
     }
 
     /**
@@ -34,23 +34,33 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        acessarTelaPonto = new javax.swing.JLabel();
         acessarTelaCadastroFuncionario = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         acessarTelaListaRegistros = new javax.swing.JLabel();
-        acessarTelaPonto = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        setMaximumSize(new java.awt.Dimension(654, 510));
-        setMinimumSize(new java.awt.Dimension(654, 510));
+        setMaximumSize(new java.awt.Dimension(710, 565));
+        setMinimumSize(new java.awt.Dimension(710, 565));
         setSize(new java.awt.Dimension(2147483647, 2147483647));
-        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(654, 510));
+
+        acessarTelaPonto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/registrarPonto.png"))); // NOI18N
+        acessarTelaPonto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                acessarTelaPontoMouseClicked(evt);
+            }
+        });
+        acessarTelaPonto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                acessarTelaPontoKeyPressed(evt);
+            }
+        });
 
         acessarTelaCadastroFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/cadastrarFuncionario.png"))); // NOI18N
         acessarTelaCadastroFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -70,56 +80,50 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        acessarTelaPonto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/marcarPonto.png"))); // NOI18N
-        acessarTelaPonto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                acessarTelaPontoMouseClicked(evt);
-            }
-        });
-        acessarTelaPonto.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                acessarTelaPontoKeyPressed(evt);
-            }
-        });
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/registrarPonto.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(0, 0, 0)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(acessarTelaCadastroFuncionario, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(acessarTelaListaRegistros, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(acessarTelaPonto))
-                    .addComponent(jLabel6))
-                .addGap(0, 0, 0)
-                .addComponent(jLabel2))
+                        .addComponent(acessarTelaListaRegistros, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(acessarTelaPonto)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(acessarTelaCadastroFuncionario)
-                        .addGap(1, 1, 1)
+                        .addGap(79, 79, 79)
                         .addComponent(acessarTelaListaRegistros)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(acessarTelaPonto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)))
-                .addGap(457, 457, 457))
+                        .addGap(73, 73, 73)
+                        .addComponent(acessarTelaPonto))
+                    .addComponent(jLabel1))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 654, 510);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -194,7 +198,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel acessarTelaPonto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

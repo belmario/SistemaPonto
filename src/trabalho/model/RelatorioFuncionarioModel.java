@@ -63,4 +63,10 @@ public class RelatorioFuncionarioModel extends AbstractTableModel {
                 return listaFuncionario;
         }
     }
+    
+    @Override
+    public String getColumnName (int indiceColuna){
+        
+        return NOME_COLUNA[indiceColuna];
+    }
 }

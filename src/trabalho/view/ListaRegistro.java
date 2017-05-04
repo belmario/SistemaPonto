@@ -40,14 +40,12 @@ public class ListaRegistro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        BuscarCodigo = new javax.swing.JLabel();
-        codigoRegistrojTextField = new javax.swing.JTextField();
         ListarTodos = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaRegistroPontojTable = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,24 +77,6 @@ public class ListaRegistro extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setText("Código do Registro");
-
-        BuscarCodigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/BuscarPorCodigo.png"))); // NOI18N
-        BuscarCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BuscarCodigoMouseClicked(evt);
-            }
-        });
-
-        codigoRegistrojTextField.setBackground(new java.awt.Color(63, 134, 195));
-        codigoRegistrojTextField.setForeground(new java.awt.Color(255, 255, 255));
-        codigoRegistrojTextField.setCaretColor(new java.awt.Color(255, 255, 255));
-        codigoRegistrojTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codigoRegistrojTextFieldActionPerformed(evt);
-            }
-        });
-
         ListarTodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/ListarTodos.png"))); // NOI18N
         ListarTodos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -126,45 +106,40 @@ public class ListaRegistro extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/lista registro.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane2)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(codigoRegistrojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(BuscarCodigo)
-                        .addGap(27, 27, 27)
+                        .addGap(75, 75, 75)
                         .addComponent(ListarTodos)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5))))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel3)
-                .addGap(57, 57, 57)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(codigoRegistrojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ListarTodos)
-                    .addComponent(BuscarCodigo)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -191,18 +166,6 @@ public class ListaRegistro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void codigoRegistrojTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoRegistrojTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_codigoRegistrojTextFieldActionPerformed
-
-    private void BuscarCodigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarCodigoMouseClicked
-        // TODO add your handling code here:
-        int idRegistro;
-        RegistroDAO DAO = new RegistroDAO();
-        idRegistro = Integer.parseInt(codigoRegistrojTextField.getText());
-        RegistroPontoEntity funcionario = DAO.buscaCodigoRegistro(idRegistro);
-    }//GEN-LAST:event_BuscarCodigoMouseClicked
 
     private void ListarTodosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListarTodosMouseClicked
         // TODO add your handling code here:
@@ -254,13 +217,11 @@ public class ListaRegistro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BuscarCodigo;
     private javax.swing.JLabel ListarTodos;
-    private javax.swing.JTextField codigoRegistrojTextField;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

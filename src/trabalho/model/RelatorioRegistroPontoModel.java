@@ -63,4 +63,10 @@ public class RelatorioRegistroPontoModel extends AbstractTableModel{
                 return listaRegistro;
         }
     }
+    
+    @Override
+    public String getColumnName (int indiceColuna){
+        
+        return NOME_COLUNA[indiceColuna];
+    }
 }
