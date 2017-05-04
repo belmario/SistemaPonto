@@ -27,7 +27,7 @@ public class RegistroPonto extends javax.swing.JFrame {
         iniciarTurnoButton.setVisible(false);
         finalizarTurnoButton.setVisible(false);
     }
-    
+
     JodaMain joda = new JodaMain();
     GenericDAO dao = new GenericDAO();
     FuncionarioDAO funcDAO = new FuncionarioDAO();
@@ -51,6 +51,7 @@ public class RegistroPonto extends javax.swing.JFrame {
         finalizarTurnoButton = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        cancelarRegistro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -95,6 +96,13 @@ public class RegistroPonto extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/registraponto.png"))); // NOI18N
 
+        cancelarRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/Cancelar.png"))); // NOI18N
+        cancelarRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelarRegistroMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -123,7 +131,8 @@ public class RegistroPonto extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(iniciarTurnoButton)
-                            .addComponent(finalizarTurnoButton))
+                            .addComponent(finalizarTurnoButton)
+                            .addComponent(cancelarRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(132, 132, 132))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -144,11 +153,13 @@ public class RegistroPonto extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nomeFuncionariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addComponent(finalizarTurnoButton)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(iniciarTurnoButton)
-                .addGap(29, 29, 29))
+                .addGap(18, 18, 18)
+                .addComponent(cancelarRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -161,9 +172,7 @@ public class RegistroPonto extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -185,7 +194,7 @@ public class RegistroPonto extends javax.swing.JFrame {
             iniciarTurnoButton.setVisible(false);
             finalizarTurnoButton.setVisible(true);
         }
-        
+
 
     }//GEN-LAST:event_codigoFuncionariojTextFieldFocusLost
 
@@ -203,8 +212,6 @@ public class RegistroPonto extends javax.swing.JFrame {
         ponto.setCodigoBuscaFuncionario(idFuncionario);
         funcionario.setStatusPonto(true);
         funcDAO.updateFuncionario(funcionario);
-        String statusAtraso = joda.informaAtraso(ponto);
-        ponto.setStatusAtraso(statusAtraso);
         dao.salvar(ponto);
         Principal telaPrincipal = new Principal();
         telaPrincipal.setLocationRelativeTo(null);
@@ -225,16 +232,26 @@ public class RegistroPonto extends javax.swing.JFrame {
         horaTrabalhada = joda.retornaTempo(ponto);
         ponto.setMinutosTrabalhados(horaTrabalhada);
         funcionario.setStatusPonto(false);
+        String statusAtraso = joda.informaAtraso(ponto);
+        ponto.setStatusAtraso(statusAtraso);
         funcDAO.updateFuncionario(funcionario);
         regDAO.updateRegistro(ponto);
-        
+
         Principal telaPrincipal = new Principal();
         telaPrincipal.setLocationRelativeTo(null);
         telaPrincipal.setVisible(true);
         this.dispose();
-        
+
 
     }//GEN-LAST:event_finalizarTurnoButtonMouseClicked
+
+    private void cancelarRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelarRegistroMouseClicked
+        // TODO add your handling code here:
+        Principal telaPrincipal = new Principal();
+        telaPrincipal.setLocationRelativeTo(null);
+        telaPrincipal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cancelarRegistroMouseClicked
 
     /**
      * @param args the command line arguments
@@ -272,6 +289,7 @@ public class RegistroPonto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cancelarRegistro;
     private javax.swing.JTextField codigoFuncionariojTextField;
     private javax.swing.JLabel finalizarTurnoButton;
     private javax.swing.JLabel iniciarTurnoButton;
