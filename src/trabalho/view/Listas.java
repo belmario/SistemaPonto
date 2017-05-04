@@ -120,7 +120,7 @@ public class Listas extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here: FUNÇÕES AQ
-        ListaRegistro telaListaRegistro = new ListaRegistro();
+        ListaRelatorio telaListaRegistro = new ListaRelatorio();
         telaListaRegistro.setLocationRelativeTo(null);
         telaListaRegistro.setVisible(true);
         //this.dispose();
