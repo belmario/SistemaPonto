@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
-<!-- 2017-05-04T20:37:44 -->
+<!-- 2017-05-04T20:55:04 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioRegistroFuncionario" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b51daa4e-3fc5-4d6c-abb5-2c7c4948be85">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sistemadeponto.xml"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -9,7 +9,7 @@
 		<![CDATA[select funcionario.codigoFuncionario, funcionario.bancoDeMinutos, registrofuncionario.dataInicial, registrofuncionario.dataFinal, registrofuncionario.statusAtraso
 from funcionario
 inner join registroFuncionario on funcionario.codigoFuncionario = registroFuncionario.funcionario_codigoFuncionario
-        and ((instr(funcionario.codigoFuncionario, $P{p_codigoFuncionario} )  <> 0) or $P{p_codigoFuncionario}  is null )   ]]>
+        and ((instr(funcionario.codigoFuncionario, $P{p_codigoFuncionario} )  <> 0) or $P{p_codigoFuncionario}  is null )]]>
 	</queryString>
 	<field name="codigoFuncionario" class="java.lang.Integer"/>
 	<field name="bancoDeMinutos" class="java.lang.Integer"/>
@@ -19,7 +19,7 @@ inner join registroFuncionario on funcionario.codigoFuncionario = registroFuncio
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{codigoFuncionario}]]></groupExpression>
 		<groupHeader>
-			<band height="40">
+			<band height="30">
 				<textField>
 					<reportElement x="100" y="0" width="100" height="30" uuid="4faca4fd-a0ce-4f61-a55a-c02532ce0582"/>
 					<textElement textAlignment="Center">
@@ -28,7 +28,7 @@ inner join registroFuncionario on funcionario.codigoFuncionario = registroFuncio
 					<textFieldExpression><![CDATA[$F{codigoFuncionario}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="200" y="0" width="100" height="30" uuid="de5c0d13-943e-491b-bad9-f0fc6089f68c"/>
+					<reportElement x="210" y="0" width="100" height="30" uuid="de5c0d13-943e-491b-bad9-f0fc6089f68c"/>
 					<textElement textAlignment="Center">
 						<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
 					</textElement>
@@ -44,9 +44,9 @@ inner join registroFuncionario on funcionario.codigoFuncionario = registroFuncio
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="82" splitType="Stretch">
 			<staticText>
-				<reportElement x="220" y="21" width="360" height="36" uuid="f0d66124-38ce-4a98-89ad-1bd088b1f2d2"/>
+				<reportElement x="221" y="23" width="360" height="36" uuid="f0d66124-38ce-4a98-89ad-1bd088b1f2d2"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tempus Sans ITC" size="24" isBold="true"/>
 				</textElement>
@@ -71,35 +71,35 @@ inner join registroFuncionario on funcionario.codigoFuncionario = registroFuncio
 	<columnHeader>
 		<band height="40" splitType="Stretch">
 			<staticText>
-				<reportElement x="310" y="0" width="80" height="30" uuid="4af8b0cd-b700-4382-ad69-5670d1b09618"/>
+				<reportElement x="330" y="0" width="80" height="30" uuid="4af8b0cd-b700-4382-ad69-5670d1b09618"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Data Inicial]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="410" y="0" width="80" height="30" uuid="fe0af620-1c8d-4530-9539-c62d9697330b"/>
+				<reportElement x="430" y="0" width="80" height="30" uuid="fe0af620-1c8d-4530-9539-c62d9697330b"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Data Final]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="4" width="80" height="30" uuid="aa60f6c8-2fce-48c3-9076-463111b9d353"/>
+				<reportElement x="110" y="0" width="80" height="30" uuid="aa60f6c8-2fce-48c3-9076-463111b9d353"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Funcionário]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="520" y="0" width="80" height="30" uuid="7e99c4a7-0892-499d-9fb0-232f8a0e6e24"/>
+				<reportElement x="540" y="0" width="80" height="30" uuid="7e99c4a7-0892-499d-9fb0-232f8a0e6e24"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Status ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="190" y="4" width="110" height="30" uuid="409bbb9a-f354-49e9-9973-880b3f6eb5f6"/>
+				<reportElement x="200" y="0" width="110" height="30" uuid="409bbb9a-f354-49e9-9973-880b3f6eb5f6"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tempus Sans ITC" size="12" isBold="true"/>
 				</textElement>
@@ -108,23 +108,23 @@ inner join registroFuncionario on funcionario.codigoFuncionario = registroFuncio
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="48" splitType="Stretch">
+		<band height="31" splitType="Stretch">
 			<textField>
-				<reportElement x="300" y="10" width="100" height="30" uuid="0858358b-0bbf-46db-97b0-e33e99318aa5"/>
+				<reportElement x="310" y="0" width="100" height="30" uuid="0858358b-0bbf-46db-97b0-e33e99318aa5"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tempus Sans ITC" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dataInicial}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="410" y="10" width="100" height="30" uuid="9a4d9c9f-3f82-4a9e-a2f0-887ceec8d9cd"/>
+				<reportElement x="420" y="0" width="100" height="30" uuid="9a4d9c9f-3f82-4a9e-a2f0-887ceec8d9cd"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tempus Sans ITC" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dataFinal}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="520" y="10" width="100" height="30" uuid="ce5b1399-91ae-4ce8-a084-3518d959cc6f"/>
+				<reportElement x="540" y="0" width="100" height="30" uuid="ce5b1399-91ae-4ce8-a084-3518d959cc6f"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tempus Sans ITC" isBold="true"/>
 				</textElement>
@@ -139,6 +139,6 @@ inner join registroFuncionario on funcionario.codigoFuncionario = registroFuncio
 		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="1" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</summary>
 </jasperReport>
