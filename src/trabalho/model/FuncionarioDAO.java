@@ -5,9 +5,13 @@
  */
 package trabalho.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import trabalho.entity.FuncionarioEntity;
 import trabalho.util.HibernateUtil;
 
@@ -43,5 +47,5 @@ public class FuncionarioDAO {
         } catch (HibernateException ex) {
             ex.printStackTrace();
         }
-    }
+    }  
 }

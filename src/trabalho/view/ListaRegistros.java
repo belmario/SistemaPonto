@@ -7,6 +7,7 @@ package trabalho.view;
 
 import trabalho.entity.FuncionarioEntity;
 import trabalho.entity.RegistroPontoEntity;
+import trabalho.model.FuncionarioDAO;
 import trabalho.model.RelatorioDAO;
 
 /**
@@ -32,7 +33,7 @@ public class ListaRegistros extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        listaFuncionariosjLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -41,10 +42,10 @@ public class ListaRegistros extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/ListaDeFuncionarios.png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        listaFuncionariosjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalho/img/ListaDeFuncionarios.png"))); // NOI18N
+        listaFuncionariosjLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                listaFuncionariosjLabelMouseClicked(evt);
             }
         });
 
@@ -70,7 +71,7 @@ public class ListaRegistros extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel2)
-                                .addComponent(jLabel1))
+                                .addComponent(listaFuncionariosjLabel))
                             .addGap(47, 47, 47))
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(jLabel4))
@@ -86,7 +87,7 @@ public class ListaRegistros extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel1)
+                .addComponent(listaFuncionariosjLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -108,17 +109,19 @@ public class ListaRegistros extends javax.swing.JFrame {
         // TODO add your handling code here: FUNÇÕES AQ
         RelatorioDAO relatorio = new RelatorioDAO();
         RegistroPontoEntity registro = new RegistroPontoEntity();
-        
+
         relatorio.geraRelatorioRegistroFuncionario(registro.getCodigoRegistroPonto());
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void listaFuncionariosjLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaFuncionariosjLabelMouseClicked
         // TODO add your handling code here: FUNÇÕES AQ
-        RelatorioDAO relatorio = new RelatorioDAO();
-        FuncionarioEntity funcionario = new FuncionarioEntity();
-        
-        relatorio.geraRelatorioFuncionario(funcionario.getCodigoFuncionario());
-    }//GEN-LAST:event_jLabel1MouseClicked
+        ListaFuncionario telaListaFuncionario = new ListaFuncionario();
+        telaListaFuncionario.setLocationRelativeTo(null);
+        telaListaFuncionario.setVisible(true);
+        //this.dispose();
+
+
+    }//GEN-LAST:event_listaFuncionariosjLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -156,10 +159,10 @@ public class ListaRegistros extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel listaFuncionariosjLabel;
     // End of variables declaration//GEN-END:variables
 }
