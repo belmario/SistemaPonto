@@ -134,7 +134,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void acessarTelaListaRegistrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acessarTelaListaRegistrosMouseClicked
         // TODO add your handling code here:
-        ListaRegistros telaListaRegistros = new ListaRegistros();
+        Listas telaListaRegistros = new Listas();
         telaListaRegistros.setLocationRelativeTo(null);
         telaListaRegistros.setVisible(true);
         this.dispose();

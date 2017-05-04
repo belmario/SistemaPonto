@@ -5,6 +5,7 @@
  */
 package trabalho.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Criteria;
@@ -12,7 +13,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import trabalho.entity.FuncionarioEntity;
 import trabalho.entity.RegistroPontoEntity;
 import trabalho.util.HibernateUtil;
 import trabalho.util.NovoHibernateUtil;
@@ -22,10 +22,9 @@ import trabalho.util.NovoHibernateUtil;
  * @author savio
  *
  */
-
 public class RegistroDAO {
- private Session sessao;
-   
+
+    private Session sessao;
 
     public RegistroPontoEntity buscaCodigoRegistro(int codigoFuncionario) {
         sessao = HibernateUtil.getSessionFactory().openSession();
@@ -39,7 +38,7 @@ public class RegistroDAO {
         List<RegistroPontoEntity> listaRegistro = criteria.list();
         registroPonto = (RegistroPontoEntity) listaRegistro.get(0);
         sessao.close();
-        return registroPonto;      
+        return registroPonto;
     }
 
     public void updateRegistro(RegistroPontoEntity registro) {
@@ -57,4 +56,22 @@ public class RegistroDAO {
         }
     }
 
+    public List<RegistroPontoEntity> selecionaTodosRegistros() {
+
+        List<RegistroPontoEntity> listaRegistro = new ArrayList<>();
+
+        sessao = HibernateUtil.getSessionFactory().openSession();
+
+        sessao.beginTransaction();
+
+        //Cria criterios ou filtros ou condições de seleção
+        Criteria criteria = sessao.createCriteria(RegistroPontoEntity.class);
+
+        criteria.addOrder(Order.asc("codigoRegistroPonto"));
+
+        //Retorna os dados da consulta
+        listaRegistro = criteria.list();
+
+        return listaRegistro;
+    }
 }

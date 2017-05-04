@@ -34,23 +34,33 @@ public class RelatorioFuncionarioModel extends AbstractTableModel {
         return NOME_COLUNA.length;
     }
 
-    public void adicionaTodosFuncionarios(){
-        
+    public void adicionaTodosFuncionarios() {
+
         FuncionarioDAO dao = new FuncionarioDAO();
-        
+
         for (FuncionarioEntity func : dao.selecionaTodosFuncionarios()) {
-                listaFuncionario.add(func);
-            }
-        
-        
-        
-        
+            listaFuncionario.add(func);
+        }
     }
-    
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        FuncionarioEntity func = listaFuncionario.get(rowIndex);
+        
+        switch (columnIndex) {
+            case 0: 
+                return func.getCodigoFuncionario();
+            case 1:
+                return func.getNomeFuncionario();
+            case 2:
+                return func.getCpfFuncionario();
+            case 3:
+                return func.getIdadeFuncionario();
+            case 4:
+                return func.getFuncaoFuncionario();
+            default:
+                return listaFuncionario;
+        }
     }
-
 }
