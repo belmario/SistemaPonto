@@ -5,6 +5,7 @@
  */
 package trabalho.view;
 
+import java.awt.Color;
 import java.sql.Date;
 import javax.swing.JOptionPane;
 import trabalho.entity.FuncionarioEntity;
@@ -23,6 +24,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     public CadastroFuncionario() {
         initComponents();
         setLocationRelativeTo(null);
+          Color minhacor = new Color (63,134,195);
+        cpfFuncionariojTextField.setBackground(minhacor);
+        telefoneFuncionariojTextField.setBackground(minhacor);
+        cpfFuncionariojTextField.setForeground(Color.white);
+        telefoneFuncionariojTextField.setForeground(Color.white); 
 
     }
     GenericDAO dao = new GenericDAO();
