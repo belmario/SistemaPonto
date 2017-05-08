@@ -35,6 +35,15 @@ public class FuncionarioEntity {
     private String telefoneFuncionairo;
     @OneToMany(targetEntity = RegistroPontoEntity.class)
     private List<RegistroPontoEntity> registroPonto;
+    private int bancoDeMinutos;
+
+    public int getBancoDeMinutos() {
+        return bancoDeMinutos;
+    }
+
+    public void setBancoDeMinutos(int bancoDeMinutos) {
+        this.bancoDeMinutos = bancoDeMinutos;
+    }
 
     public List<RegistroPontoEntity> getRegistroPonto() {
         return registroPonto;

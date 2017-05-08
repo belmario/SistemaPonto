@@ -222,6 +222,7 @@ public class RegistroPonto extends javax.swing.JFrame {
 
         int idFuncionario;
         int horaTrabalhada;
+        int bancoDeMinutos, bancoMinutos;
         idFuncionario = Integer.parseInt(codigoFuncionariojTextField.getText());
         RegistroPontoEntity ponto = regDAO.buscaCodigoRegistro(idFuncionario);
         FuncionarioEntity funcionario = funcDAO.buscaFuncionario(idFuncionario);
@@ -231,9 +232,12 @@ public class RegistroPonto extends javax.swing.JFrame {
         funcionario.setStatusPonto(false);
         String statusAtraso = joda.informaAtraso(ponto);
         ponto.setStatusAtraso(statusAtraso);
+        bancoDeMinutos = joda.bancoMinutos(ponto);
+        bancoMinutos = funcionario.getBancoDeMinutos();
+        bancoDeMinutos = bancoDeMinutos + bancoMinutos;
+        funcionario.setBancoDeMinutos(bancoDeMinutos);
         funcDAO.updateFuncionario(funcionario);
         regDAO.updateRegistro(ponto);
-
         Principal telaPrincipal = new Principal();
         telaPrincipal.setLocationRelativeTo(null);
         telaPrincipal.setVisible(true);

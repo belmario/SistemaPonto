@@ -51,4 +51,17 @@ public class JodaMain {
         }
         return statusAtraso;
     }
+    public int bancoMinutos(RegistroPontoEntity registro){
+        RegistroPontoEntity registroPonto = registro;
+        int bancoDeMinutos = 0;
+        int minutosTrabalhados = registroPonto.getMinutosTrabalhados();
+        if (minutosTrabalhados == 540) {
+            bancoDeMinutos = 0;
+        } else if (minutosTrabalhados > 540) {
+            bancoDeMinutos = minutosTrabalhados - 540;
+        } else if (minutosTrabalhados < 540) {
+            bancoDeMinutos = minutosTrabalhados - 540;
+        }       
+        return bancoDeMinutos;
+    }
 }

@@ -17,7 +17,7 @@ import trabalho.entity.FuncionarioEntity;
 public class RelatorioFuncionarioModel extends AbstractTableModel {
 
     private List<FuncionarioEntity> listaFuncionario;
-    private final String[] NOME_COLUNA = {"Código", "Nome", "CPF", "Idade", "Funcao"};
+    private final String[] NOME_COLUNA = {"Código", "Nome", "CPF", "Idade", "Funcao", "Banco de Minutos"};
 
     public RelatorioFuncionarioModel() {
         listaFuncionario = new ArrayList<>();
@@ -59,6 +59,8 @@ public class RelatorioFuncionarioModel extends AbstractTableModel {
                 return func.getIdadeFuncionario();
             case 4:
                 return func.getFuncaoFuncionario();
+            case 5:
+                return func.getBancoDeMinutos();
             default:
                 return listaFuncionario;
         }
